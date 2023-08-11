@@ -14,22 +14,23 @@ int main(void)
 	i = 48;
 	while (i <= 57)
 	{
-		j = 48; 
+		j = 48;
 		while (j <= 57)
 		{
 			k = i;
 			while (k <= 57)
-			{	
+			{
 				l = j;
 				while (l <= 57)
 				{
-					if ( (i+j != k+l) && (k+l > i+j) && (k>=i)){						
+					if ((i + j != k + l) && (k + l > i + j))
+					{
 						putchar(i);
 						putchar(j);
 						putchar(' ');
 						putchar(k);
 						putchar(l);
-						if (i+j+k+l < 227)
+						if (i + j + k + l < 227)
 						{
 							putchar(',');
 							putchar(' ');
