@@ -14,10 +14,12 @@ int main(void)
 		if (alphabet == 'e' || alphabet == 'q')
 		{
 			alphabet++;
-			continue;
 		}
+		else
+		{
 		putchar(alphabet);
 		alphabet++;
+		}
 	}
 	putchar('\n');
 	return (0);

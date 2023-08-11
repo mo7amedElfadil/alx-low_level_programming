@@ -6,7 +6,10 @@
  */
 int main(void)
 {
-	for (int i=0, i < 10; i++)
+	int i;
+
+	i=-1;
+	while (i++<9)
 	{
 		printf("%d",i);
 	}
