@@ -20,17 +20,17 @@ int main(void)
 			k = i;
 			while (k <= 57)
 			{
-				l = j;
+				l = 48;
 				while (l <= 57)
 				{
-					if ((i <= k) & (j <= l))
+					if((i+j != k+l)  && (k >= i) && (k+l > i+j))
 					{
 						putchar(i);
 						putchar(j);
 						putchar(' ');
 						putchar(k);
 						putchar(l);
-						if (i + j + k + l < 228)
+						if (i + j + k + l <= 228)
 						{
 							putchar(',');
 							putchar(' ');
