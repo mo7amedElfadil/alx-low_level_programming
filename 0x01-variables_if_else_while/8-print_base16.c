@@ -14,13 +14,12 @@ int main(void)
 		putchar(alphabet);
 		alphabet++;
 	}
-	alphabet +=39;
+	alphabet += 39;
 	while (alphabet <= 102)
 	{
 		putchar(alphabet);
 		alphabet++;
 	}
-
 	putchar('\n');
 	return (0);
 }
