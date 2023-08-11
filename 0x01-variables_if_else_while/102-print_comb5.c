@@ -23,7 +23,7 @@ int main(void)
 				l = 48;
 				while (l <= 57)
 				{
-					if((i+j != k+l)  && (k >= i) && (k+l > i+j))
+					if((k >= i) && !((i==k) && (j==l)))
 					{
 						putchar(i);
 						putchar(j);
