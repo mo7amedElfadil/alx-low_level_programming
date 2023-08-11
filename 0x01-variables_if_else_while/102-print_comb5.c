@@ -23,14 +23,14 @@ int main(void)
 				l = 48;
 				while (l <= 57)
 				{
-					if((k >= i) && !((i==k) && (j==l)))
+					if((k >= i) && !((i>=k) && (j>=l)))
 					{
 						putchar(i);
 						putchar(j);
 						putchar(' ');
 						putchar(k);
 						putchar(l);
-						if (i + j + k + l <= 228)
+						if (!((i == 57) && (j == 56)))
 						{
 							putchar(',');
 							putchar(' ');
