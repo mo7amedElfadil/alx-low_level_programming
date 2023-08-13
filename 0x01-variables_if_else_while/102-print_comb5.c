@@ -1,8 +1,11 @@
 #include <stdio.h>
 /**
  * main - Entry point
- *
- *Return: Always 0 (Success)
+ * Print all possible combinations of 2 two-digit no.s
+ * Must be in ascending order 
+ * 00 01 and 10 00 are considered the same combination of 0 & 1
+ * Only putchar and no char vars
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

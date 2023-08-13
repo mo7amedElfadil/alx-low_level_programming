@@ -1,8 +1,10 @@
 #include <stdio.h>
 /**
  * main - Entry point
- *
- *Return: Always 0 (Success)
+ * Print all possible combinations of 2 digits eg. 01, 02, ..., 79, 89
+ * where 01 and 10 are considered the same combination
+ * Using only putchar and we're not allowed to use any char variable
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

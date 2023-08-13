@@ -4,7 +4,7 @@
 
 /**
  * main - Entry point
- *
+ * Assign a random no. to var n and printf the last digit stored in n
  * Return: Always 0 (Success)
  */
 int main(void)

@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
  * main - Entry point
- *
- *Return: Always 0 (Success)
+ * Print the alphabet in lowercase, followed by newline using only putchar
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
  * main - Entry point
- *
- *Return: Always 0 (Success)
+ * Print all possible combinations of single-digit no.s in ascending order
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

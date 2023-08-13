@@ -1,8 +1,9 @@
 #include <stdio.h>
 /**
  * main - Entry point
- *
- *Return: Always 0 (Success)
+ * Print alphabet in lowercase except for q and e
+ * Only putchar
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

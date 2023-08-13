@@ -3,7 +3,7 @@
 #include <time.h>
 /**
  * main - Entry point
- *
+ * Assign randon no. to var n and printf whether n is +ve or -ve
  * Return: Always 0 (Success)
  */
 int main(void)

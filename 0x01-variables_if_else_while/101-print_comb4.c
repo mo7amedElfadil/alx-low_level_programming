@@ -1,7 +1,9 @@
 #include <stdio.h>
 /**
  * main - Entry point
- *
+ * Print all possible combinations of 3 digits 
+ * All 3 digits must be different. Print the smallest combination
+ * Can only use putchar and no Char vars
  *Return: Always 0 (Success)
  */
 int main(void)
