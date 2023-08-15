@@ -19,11 +19,9 @@ void print_times_table(int n)
 				{
 					_putchar(' ');
 					if ((c * r) < 100)
-					{
 						_putchar(' ');
-						if ((c * r) < 10)
-							_putchar(' ');
-					}
+					if ((c * r) < 10)
+						_putchar(' ');
 				}
 				if ((r * c) / 100 > 0)
 				{
