@@ -8,7 +8,7 @@
 int main(void)
 {
 	int i = 0;
-	unsigned long a = 1, b = 2, c, d=2;
+	unsigned long a = 1, b = 2, c, d = 2;
 
 
 
@@ -16,9 +16,8 @@ int main(void)
 	while (i < 48)
 	{
 		c = a + b;
-		if (c > 4000000){
+		if (c > 4000000)
 			break;
-		}
 		if ((c % 2) == 0)
 			d += c;
 		a = b;
