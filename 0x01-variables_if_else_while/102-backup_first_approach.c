@@ -20,10 +20,10 @@ int main(void)
 			k = i;
 			while (k <= 57)
 			{
-				l = 48;
+				l =48;
 				while (l <= 57)
 				{
-					if ((k >= i) && !((i >= k) && (j >= l)))
+					if (!((i >= k) && (j >= l)))
 					{
 						putchar(i);
 						putchar(j);
@@ -43,7 +43,7 @@ int main(void)
 			j++;
 		}
 		i++;
-	}	
+	}
 	putchar('\n');
 	return (0);
 }
