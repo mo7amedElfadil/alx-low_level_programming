@@ -7,7 +7,7 @@ void print_times_table(int n)
 {
 	int r = 0;
 
-	if ( n >= 0 && n <= 15 )
+	if (n >= 0 && n <= 15)
 	{
 		while (r <= n)
 		{
@@ -18,14 +18,11 @@ void print_times_table(int n)
 				if (c > 0)
 				{
 					_putchar(' ');
-					if((c * r) < 100)
+					if ((c * r) < 100)
 					{
 						_putchar(' ');
-
 						if ((c * r) < 10)
-						{
 							_putchar(' ');
-						}
 					}
 				}
 				if ((r * c) / 100 > 0)
@@ -39,9 +36,7 @@ void print_times_table(int n)
 				}
 				_putchar((r * c) % 10 + '0');
 				if (c < n)
-				{
 					_putchar(',');
-				}
 				c++;
 			}
 			_putchar('\n');
