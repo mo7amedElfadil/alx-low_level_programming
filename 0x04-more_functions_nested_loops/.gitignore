@@ -1,2 +1,5 @@
+*
 *main.c*
 !/*.c
+!/main.h
+!/README.md
