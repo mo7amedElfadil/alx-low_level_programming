@@ -7,7 +7,7 @@
 void print_number(int n)
 {
 	unsigned int size = 1;
-	unsigned int p=n;
+	unsigned int p = n;
 
 	if (n < 0)
 	{
@@ -16,7 +16,7 @@ void print_number(int n)
 		p++;
 		_putchar('-');
 	}
-	while (size <=  p/ 10)
+	while (size <=  p / 10)
 	{
 		size *= 10;
 	}
