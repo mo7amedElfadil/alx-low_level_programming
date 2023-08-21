@@ -10,7 +10,7 @@
  */
 int _atoi(char *s)
 {
-	int n_count = 0, p_count = 0, i_count, l = 0, convert_out;
+	int n_count = 0, p_count = 0, i_count = 0, l = 0, convert_out;
 	unsigned int convert = 0;
 
 
@@ -26,6 +26,8 @@ int _atoi(char *s)
 			convert *= 10;
 			convert += *(s + l) - 48;
 		}
+		else if (i_count > 0)
+			break;
 		l++;
 	}
 	if (i_count == 0)
