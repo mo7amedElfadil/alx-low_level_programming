@@ -10,15 +10,15 @@
  */
 int _atoi(char *s)
 {
-	int n_count, p_count, i_count, l = 0;
+	int n_count=0, p_count=0, i_count, l = 0;
 	int convert = 0;
 
 
 	while (*(s + l) != '\0')
 	{
-		if (*(s + l) == '-')
+		if (*(s + l) == 45)
 			n_count++;
-		else if (*(s + l) == '+')
+		else if (*(s + l) == 43)
 			p_count++;
 		else if (*(s + l) >= 48 && *(s + l) <= 57)
 		{
