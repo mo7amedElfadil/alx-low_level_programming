@@ -6,12 +6,12 @@
  *			if there are no numbers, return 0
  * @s: pointer to string to be converted into integer
  * Return: 0 (Failure/no numbers)
- *			int convert
+ *			int convert_out
  */
 int _atoi(char *s)
 {
-	int n_count=0, p_count=0, i_count, l = 0;
-	int convert = 0;
+	int n_count = 0, p_count = 0, i_count, l = 0, convert_out;
+	unsigned int convert = 0;
 
 
 	while (*(s + l) != '\0')
@@ -31,7 +31,13 @@ int _atoi(char *s)
 	if (i_count == 0)
 		return (0);
 	else if (n_count % 2 == 1)
-		convert *= -1;
+	{
+		convert_out = convert - 1;
 
-	return (convert);
+		convert_out *= -1;
+		convert_out -= 1;
+	}
+	else
+		convert_out = convert;
+	return (convert_out);
 }
