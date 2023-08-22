@@ -14,12 +14,12 @@ int main(void)
 	time_t t;
 	int max;
 
-	srand((unsigned) time(&t));
+	srand((unsigned int) time(&t));
 	max = rand() % (byte * 8);
-	while( sum <= max - byte)
+	while (sum <= max - byte)
 		{	c = rand() % byte;
 			putchar(c);
-			sum +=c;
+			sum += c;
 		}
 	putchar(max - sum);
 	return (0);
