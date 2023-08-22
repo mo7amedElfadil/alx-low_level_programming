@@ -15,7 +15,7 @@ int main(void)
 	int max;
 
 	srand((unsigned int) time(&t));
-	max = rand() % (byte * 8);
+	max = 2772;
 	while (sum <= max - byte)
 		{	c = rand() % byte;
 			putchar(c);
