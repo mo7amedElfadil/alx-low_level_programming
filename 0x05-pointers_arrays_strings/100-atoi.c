@@ -10,7 +10,7 @@
  */
 int _atoi(char *s)
 {
-	int n_count = 0, p_count = 0, i_count = 0, l = 0, convert_out;
+	int n_count = 0, i_count = 0, l = 0, convert_out;
 	unsigned int convert = 0;
 
 
@@ -18,8 +18,6 @@ int _atoi(char *s)
 	{
 		if (*(s + l) == 45)
 			n_count++;
-		else if (*(s + l) == 43)
-			p_count++;
 		else if (*(s + l) >= 48 && *(s + l) <= 57)
 		{
 			i_count++;
