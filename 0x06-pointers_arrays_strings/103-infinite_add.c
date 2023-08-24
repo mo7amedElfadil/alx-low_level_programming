@@ -45,6 +45,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	size_r--;
 	p1--;
 	p2--;
+	r[size_r] = 0;
 	i = 0;
 	while (p1 != n1 - 1 && p2 != n2 - 1)
 	{
