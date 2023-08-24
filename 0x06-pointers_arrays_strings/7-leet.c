@@ -22,7 +22,7 @@ char *leet(char *s)
 		j = 0;
 		while (j < 10)
 		{
-			if (*(s + i) == let[j] || *(s + i) - 32 == let[j])
+			if (*(s + i) == let[j])
 				*(s + i) = let[j + 1];
 			j += 2;
 		}
