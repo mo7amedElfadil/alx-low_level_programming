@@ -5,7 +5,6 @@
  * @s: pointer to a string.
  * @l: length of string
  */
-
 void rev_string(char *s, int l)
 {
 	int j = 0;
@@ -19,6 +18,21 @@ void rev_string(char *s, int l)
 	}
 }
 
+/**
+ * carry_manip - function that manipulates the carry.
+ * @r: pointer to a string.
+ * @i: index of current position in string
+ * Return: 1 when successful & 0 when failure to carry
+ */
+int carry_manip(char *r, int i)
+{
+	if (r[i] > '9')
+	{
+		r[i] -= 10;
+		return (1);
+	}
+	return (0);
+}
 /**
  * infinite_add - function that adds two numbers.
  * @n1: first number char type
@@ -42,60 +56,34 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		p1++;
 	while (*p2)
 		p2++;
-	size_r--;
-	p1--;
-	p2--;
-	r[size_r] = 0;
-	i = 0;
+	size_r--, p1--, p2--, r[size_r] = 0;
 	while (p1 != n1 - 1 && p2 != n2 - 1)
 	{
 		r[i] = *p1 + *p2 - '0' + carry;
-		carry = 0;
-		if (r[i] > '9')
-		{
-			r[i] -= 10;
-			carry = 1;
-		}
-		i++;
-		p1--;
-		p2--;
+		carry = carry_manip(r, i);
+		i++, p1--, p2--;
 		if (size_r == i && (p1 != n1 - 1 || p2 != n2 - 1 || carry == 1))
 			return (0);
 	}
 	while (p1 != n1 - 1)
 	{
 		r[i] =	*p1 + carry;
-		carry = 0;
-		if (r[i] > '9')
-		{
-			r[i] -= 10;
-			carry = 1;
-		}
-		i++;
-		p1--;
+		carry = carry_manip(r, i);
+		i++, p1--;
 		if (size_r == i && (p1 != n1 - 1 || carry == 1))
 			return (0);
 	}
 		while (p2 != n2 - 1)
 	{
 		r[i] = *p2 + carry;
-		carry = 0;
-		if (r[i] > '9')
-		{
-			r[i] -= 10;
-			carry = 1;
-		}
-
-		i++;
-		p2--;
+		carry = carry_manip(r, i);
+		i++, p2--;
 		if (size_r == i && (p2 != n2 - 1 || carry == 1))
 			return (0);
 	}
 	if (carry == 1)
 	{
-		carry = 0;
-		r[i] = '1';
-		r[i + 1] = 0;
+		carry = 0,	r[i] = '1',	r[i + 1] = 0;
 	}
 	else
 		r[i--] = 0;
