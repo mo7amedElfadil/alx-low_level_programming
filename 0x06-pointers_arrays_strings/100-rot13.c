@@ -5,7 +5,7 @@
  *		can only use one if and 2 loops
  *		cant use switch
  * @s: string to encode
- * Return: Always 0 (Success)
+ * Return: s
  */
 char *rot13(char *s)
 {
@@ -14,22 +14,16 @@ char *rot13(char *s)
 
 	while (*(s + i) != '\0')
 	{
+
+
 		c = *(s + i);
-		if ((c >= 65 && c <= 90 ))
+		if (1)
 		{
-			if (c + 13 > 90 )
-				*(s + i) -= 13;
-			else
-				*(s + i) += 13;
 		}
-		else if(c >= 97 && c <= 122)
+		else
 		{
-			if (c + 13 > 122 )
-				*(s + i) -= 13;
-			else
-				*(s + i) += 13;
 		}
-		i++;
+			i++;
 	}
 	return (s);
 }
