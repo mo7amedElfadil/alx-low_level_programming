@@ -92,7 +92,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		if (size_r == i && (p2 != n2 - 1 || carry == 1))
 			return (0);
 	}
-	if (carry == 1 && size_r >= i)
+	if (carry == 1)
 	{
 		carry = 0;
 		r[i] = '1';
