@@ -85,8 +85,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			r[i] -= 10;
 			carry = 1;
 		}
-		else
-			r[i - 1] = 0;
+
 		i++;
 		p2--;
 		if (size_r == i && (p2 != n2 - 1 || carry == 1))
@@ -98,6 +97,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		r[i] = '1';
 		r[i + 1] = 0;
 	}
+	else
+		r[i--] = 0;
 	rev_string(r, i);
 	return (r);
 }
