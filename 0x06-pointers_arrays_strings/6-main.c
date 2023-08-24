@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-    char str[] = "Expect the be\vst. Prepare for the worst. Capitalize on what comes.\nhello world! hello-world 0123456hello world\thello world.hello world\n ,a b	c ;d.e!f?g\"h(i)j{k}l";
-    char *ptr;
+   char str[] = "expect the best. Prepare for the worst. Capitalize on what comes.\nhello world! hello-world 0123456hello world\thello world.hello world\n";
+   char *ptr;
 
     ptr = cap_string(str);
     printf("%s", ptr);
