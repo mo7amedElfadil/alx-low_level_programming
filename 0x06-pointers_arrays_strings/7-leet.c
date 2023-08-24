@@ -21,7 +21,7 @@ char *leet(char *s)
 	while (*(s + i) != '\0')
 	{
 		j = 0;
-		while (j < 10)
+		while (j < 20)
 		{
 			if (*(s + i) == let[j])
 				*(s + i) = let[j + 1];
