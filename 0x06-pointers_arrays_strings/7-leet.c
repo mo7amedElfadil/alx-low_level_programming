@@ -10,19 +10,19 @@
  *		can only use one if and 2 loops
  *		cant use switch
  * @s: string to encode
- * Return: Always 0 (Success)
+ * Return: s
  */
 char *leet(char *s)
 {
 	int i = 0, j;
-	int let[10] = {65, 52, 69, 51, 79, 48, 84, 55, 76, 49};
+	char let[10] = {'A', '4', 'E', '3', 'O', '0', 'T', '7', 'L', '1'};
 
 	while (*(s + i) != '\0')
 	{
 		j = 0;
 		while (j < 10)
 		{
-			if (*(s + i) == let[j])
+			if (*(s + i) == let[j] || *(s + i) - 32 == let[j])
 				*(s + i) = let[j + 1];
 			j += 2;
 		}
