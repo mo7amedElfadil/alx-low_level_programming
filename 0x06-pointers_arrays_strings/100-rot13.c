@@ -9,20 +9,28 @@
  */
 char *rot13(char *s)
 {
-	int i = 0, j;
+	int i = 0;
 	char c;
 
 	while (*(s + i) != '\0')
 	{
 		c = *(s + i);
-		j = 0;
-		if ((c >= 65 && c <= 90 ) || (c >= 97 && c <= 122))
-
-		while (j < 10)
+		if ((c >= 65 && c <= 90 ))
 		{
-			j += 2;
+			if (c + 13 > 90 )
+				*(s + i) -= 13;
+			else
+				*(s + i) += 13;
+		}
+		else if(c >= 97 && c <= 122)
+		{
+			if (c + 13 > 122 )
+				*(s + i) -= 13;
+			else
+				*(s + i) += 13;
 		}
 		i++;
 	}
 	return (s);
 }
+
