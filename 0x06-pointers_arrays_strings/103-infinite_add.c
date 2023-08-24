@@ -5,42 +5,84 @@
  * @n2: second number char type
  * @r: buffer that the function uses to store the result char type
  * @size_r: buffer size int type
+ * description: 1st couple of while loops to set ptrs to the end
+ *				of the strings
+ *				The 3rd loop is if both numbers still have digits
+ *				the 4th loop is if only n1 still has digits
+ *				the 5th loop is if only n2 still has digits
+ *
  * Return: r (result of addition)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, ir, a, b;
+	int i = 0, j, carry = 0;
+	char *p1 = n1, *p2 = n2;
 
+	while (*p1)
+		p1++;
+	while (*p2)
+		p2++;
+	size_r--;
+	p1--;
+	p2--;
+	r[size_r] = 0;
 	i = 0;
-	while (n1[i])
+	while (p1 != n1 - 1 && p2 != n2 - 1)
+	{
+		r[i] =	*p1 + *p2 - '0' + carry;
+		carry = 0;
+		if (r[i] > '9')
+		{
+			r[i] -= 10;
+			carry++;
+		}
 		i++;
-	j = 0;
-	while (n2[j])
-		j++;
-	if (i >= j)
-		ir = i + 1;
-	else
-		ir = j + 1;
-	a = 0;
-	while (a <= ir)
-	{
-		r[a] = '0';
-		a++;
+		p1--;
+		p2--;
+		if (size_r == i && (p1 != n1 - 1 || p2 != n2 - 1 || carry == 1))
+			return (0);
 	}
-	if (ir > size_r)
-		return (0);
+	while (p1 != n1 - 1)
+	{
+		r[i] =	*p1  + carry;
+		carry = 0;
+		if (r[i] > '9')
+		{
+			r[i] -= 10;
+			carry++;
+		}
+		i++;
+		p1--;
+		p2--;
+		if (size_r == i && (p1 != n1 - 1 || carry == 1))
+			return (0);
 
+	}
+		while (p2 != n2 - 1)
+	{
+		r[i] =	*p2  + carry;
+		carry = 0;
+		if (r[i] > '9')
+		{
+			r[i] -= 10;
+			carry++;
+		}
+		i++;
+		p1--;
+		p2--;
+		if (size_r == i && (p2 != n2 - 1 || carry == 1))
+			return (0);
 
-	while (ir >= 0)
+	}
+	if (carry == 1 && size_r >= i)
+	{
+		carry = 0;
+		r[i] = '1';
+	}
+
+    for (j = 0; j < size_r; j++)
 	{
 
-		b = (n1[i] - 48 + n2[j] - 48 + r[ir] - 48) % 10;
-		a = (n1[i] - 48 + n2[j] - 48 + r[ir] - 48) / 10;
-		r[ir] += b;
-		r[ir - 1] += a;
-		ir--;
-		i--;
-		j--;
 	}
 	return (r);
 }
