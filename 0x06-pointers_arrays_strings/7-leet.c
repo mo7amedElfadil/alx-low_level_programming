@@ -17,14 +17,15 @@ char *leet(char *s)
 	char nums[] = "4433007711";
 	char let[] =	"aAeEoOtTlL";
 
-	while (*(s + i) != '\0')
+	while (s[i] != '\0')
 	{
 		j = 0;
 		while (let[j] != '\0')
 		{
-			if (*(s + i) == let[j])
+			if (s[i] == let[j])
 			{
-				*(s + i) = nums[j];
+				s[i] = nums[j];
+				j++;
 				break;
 			}
 			j++;
