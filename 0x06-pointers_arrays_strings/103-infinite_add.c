@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * infinite_add - function that adds two numbers.
  * @n1: first number char type
@@ -11,7 +10,6 @@
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int i, j, ir, a, b;
-	char *rev1, *rev2;
 
 	i = 0;
 	while (n1[i])
