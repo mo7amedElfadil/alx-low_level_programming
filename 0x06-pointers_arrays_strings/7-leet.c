@@ -6,7 +6,6 @@
  *		Letters o and O should be replaced by 0	111 79 48
  *		Letters t and T should be replaced by 7	116 84	55
  *		Letters l and L should be replaced by 1	108 76 49
- *
  *		can only use one if and 2 loops
  *		cant use switch
  * @s: string to encode
@@ -15,8 +14,8 @@
 char *leet(char *s)
 {
 	int i = 0, j;
-	char nums[11] = "4433007711";
-	char let[11] =	"aAeEoOtTlL";
+	char nums[] = "4433007711";
+	char let[] =	"aAeEoOtTlL";
 
 	while (*(s + i) != '\0')
 	{
@@ -24,7 +23,10 @@ char *leet(char *s)
 		while (let[j] != '\0')
 		{
 			if (*(s + i) == let[j])
+			{
 				*(s + i) = nums[j];
+				break;
+			}
 			j++;
 		}
 		i++;
