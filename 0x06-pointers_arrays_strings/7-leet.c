@@ -15,17 +15,17 @@
 char *leet(char *s)
 {
 	int i = 0, j;
-	char let[20] = {'a', '4', 'e', '3', 'o', '0', 't', '7', 'l',
-		'1', 'A', '4', 'E', '3', 'O', '0', 'T', '7', 'L', '1'};
+	char nums[11] = "4433007711";
+	char let[11] =	"aAeEoOtTlL";
 
 	while (*(s + i) != '\0')
 	{
 		j = 0;
-		while (j < 20)
+		while (let[j] != '\0')
 		{
 			if (*(s + i) == let[j])
-				*(s + i) = let[j + 1];
-			j += 2;
+				*(s + i) = nums[j];
+			j++;
 		}
 		i++;
 	}
