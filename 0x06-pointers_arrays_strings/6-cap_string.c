@@ -14,15 +14,16 @@ char *cap_string(char *s)
 
 	while (*(s + i) != '\0')
 	{
-		if (*(s + i) >= 97 && *(s + i) <= 122)
+		for (j = 0; j < 13; j++)
 		{
-			for (j = 0; j < 13; j++)
+			if (*(s + i - 1) == sep[j] && (*(s + i) >= 97 && *(s + i) <= 122))
 			{
-				if (*(s + i - 1) == sep[j])
-					*(s + i) -= 32;
+				*(s + i) -= 32;
 			}
 		}
+
 		i++;
+
 	}
 	return (s);
 }
