@@ -15,7 +15,6 @@ void print_buffer(char *b, int size)
 	if (size <= 0 || l == 0)
 	{
 		printf("\n");
-		size = l;
 	}
 	i = 0, j = 0;
 	while (i < size && size > 0)
