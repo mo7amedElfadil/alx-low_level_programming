@@ -12,11 +12,10 @@ void print_buffer(char *b, int size)
 	while (b[l])
 		l++;
 
-
-	if (size <= 0 || size < l)
+	if (size <= 0 || l == 0)
 	{
 		printf("\n");
-		return;
+		size = l;
 	}
 	i = 0, j = 0;
 	while (i < size && size > 0)
