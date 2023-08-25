@@ -7,14 +7,21 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, j, k;
+	int i, j, k, l = 0;
 
-	if (size <= 0)
+	while (b[l])
+		l++;
+
+
+	if (size <= 0 || size < l)
+	{
 		printf("\n");
+		return;
+	}
 	i = 0, j = 0;
 	while (i < size && size > 0)
 	{
-		printf("%08x: ", (10 * (i / 10)));
+		printf("%08x: ", i);
 		for (k = 0; k < 10; k++)
 		{
 			if (b[i + k] || i + k < size)
@@ -35,7 +42,6 @@ void print_buffer(char *b, int size)
 				printf("%c", b[i]);
 			i++, j++;
 		}
-
 			printf("\n");
 	}
 }
