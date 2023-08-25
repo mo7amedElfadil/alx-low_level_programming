@@ -15,12 +15,16 @@ void print_buffer(char *b, int size)
 	while (i < size)
 	{
 		printf("%08x: ", (10 * (i / 10)));
-		for (k = 0; k < 10; k += 2)
+		for (k = 0; k < 10; k++)
 		{
-			if (b[i + k] || i < size - 10)
-				printf("%02x%02x ", b[i + k], b[i + k + 1]);
+			if (b[i + k] || i + k < size)
+			{
+				printf("%02x", b[i + k]);
+			}
 			else
-				printf("     ");
+				printf("  ");
+			if (k % 2 == 1)
+				printf(" ");
 		}
 		j = 0;
 		while (j < 10 && i < size)
