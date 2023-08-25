@@ -12,7 +12,7 @@ void print_buffer(char *b, int size)
 	if (size <= 0)
 		printf("\n");
 	i = 0, j = 0;
-	while (i < size)
+	while (i < size && size > 0)
 	{
 		printf("%08x: ", (10 * (i / 10)));
 		for (k = 0; k < 10; k++)
@@ -29,7 +29,7 @@ void print_buffer(char *b, int size)
 		j = 0;
 		while (j < 10 && i < size)
 		{
-			if (b[i] <= 31)
+			if (b[i] <= 31 || b[i] == 127)
 				printf(".");
 			else
 				printf("%c", b[i]);
