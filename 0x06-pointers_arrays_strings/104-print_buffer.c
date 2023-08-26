@@ -7,7 +7,7 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, j, k, l = 0;
+	int i, j, k;
 
 	i = 0, j = 0;
 	while (i < size && size > 0)
