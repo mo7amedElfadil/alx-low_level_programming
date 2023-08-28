@@ -28,7 +28,7 @@ char *_strstr(char *haystack, char *needle)
 		}
 		ptrh++;
 	}
-	if (*(ptrh + i - 1))
+	if (*(ptrh + i - 1) && *ptrh && *ptrn)
 		return (ptrh);
 	else
 		return (NULL);
