@@ -35,9 +35,9 @@ int main(void)
         {
                 printf("%s + %s = %s\n", n, m, res);
         }
-        n = "999999999";
+        n = "99";
         m = "1";
-        res = infinite_add(n, m, r2, 10);
+        res = infinite_add(n, m, r2, 3);
         if (res == 0)
         {
                 printf("Error\n");

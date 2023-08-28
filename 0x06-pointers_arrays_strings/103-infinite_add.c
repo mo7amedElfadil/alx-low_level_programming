@@ -73,7 +73,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		if (size_r == i && (p1 != n1 - 1 || carry == 1))
 			return (0);
 	}
-		while (p2 != n2 - 1)
+	while (p2 != n2 - 1)
 	{
 		r[i] = *p2 + carry;
 		carry = carry_manip(r, i);
