@@ -15,23 +15,21 @@ char *_strstr(char *haystack, char *needle)
 	char *ptrh = haystack;
 	char *ptrn;
 
+
 	while (*ptrh)
 	{
 		ptrn = needle;
-		if (*ptrn == *ptrh)
+		for (i = 0; *ptrn && *ptrn == *(ptrh + i); ptrn++, i++)
 		{
-			for (i = 0; *(ptrh + i) == *(ptrn + i)  && *(ptrh + i) ; i++)
-			{
-			}
-			if (!(*(ptrn + i)))
-				break;
+
 		}
+		if (!(*ptrn))
+			break;
 		ptrh++;
 	}
-	if (*(ptrh + i - 1) && *ptrh && *ptrn)
-		return (ptrh);
-	else
-		return (NULL);
+
+
+	return (ptrh);
 }
 
 
