@@ -23,7 +23,7 @@ char *_strstr(char *haystack, char *needle)
 			for (i = 0; *(ptrh + i) == *(ptrn + i)  && *(ptrh + i) ; i++)
 			{
 			}
-			if (!(*(ptrh + i)))
+			if (!(*(ptrn + i)))
 				break;
 		}
 		ptrh++;
