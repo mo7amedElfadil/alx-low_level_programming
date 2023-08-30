@@ -21,7 +21,6 @@ char *_strstr(char *haystack, char *needle)
 		ptrn = needle;
 		for (i = 0; *ptrn && *ptrn == *(ptrh + i); ptrn++, i++)
 		{
-
 		}
 		if (!(*ptrn))
 			break;
