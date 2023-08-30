@@ -23,12 +23,13 @@ int _strlen_recursion(char *s)
  */
 int palindrome(char *s, int t)
 {
-	if (t == 1)
-		return (0);
-	else if (t == 0)
+	if (t == 0)
 		return (1);
 	if (*s == s[t])
 		return (palindrome(s++, t - 2));
+	else if (t == 1)
+		return (0);
+
 	else
 		return (1);
 }
