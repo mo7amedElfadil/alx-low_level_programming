@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * _strlen_recursion - returns the length of a string
  * @s: string find length of
@@ -9,10 +10,7 @@ int _strlen_recursion(char *s)
 	if (!(*s))
 		return (0);
 	return (1 + _strlen_recursion(s + 1));
-
 }
-
-
 
 /**
  * palindrome - helper function to determines string s is a palindrome
@@ -23,15 +21,12 @@ int _strlen_recursion(char *s)
  */
 int palindrome(char *s, int t)
 {
-	if (t == 0)
+	if (t <= 0)
 		return (1);
-	if (*s == s[t])
-		return (palindrome(s++, t - 2));
-	else if (t == 1)
-		return (0);
-
+	if (*s == s[t] && *s)
+		return (palindrome(s + 1, t - 2));
 	else
-		return (1);
+		return (0);
 }
 
 /**
@@ -42,9 +37,9 @@ int palindrome(char *s, int t)
  */
 int is_palindrome(char *s)
 {
-	int t = _strlen_recursion(s);
+	int t = _strlen_recursion(s) - 1;
 
-	return (palindrome(s, t - 1));
+	return (palindrome(s, t));
 }
 
 
