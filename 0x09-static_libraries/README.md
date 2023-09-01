@@ -40,7 +40,7 @@ ar rc libutil.a util_file.o util_net.o util_math.o
 which creates a SL named 'libutil.a' and puts copies for the subceeding object files.
 If the L file exists already, the object files get added/replaced if they are newer than those inside. the `c` flag creates a library if it doesn't exist and the `r` flag replaces older object files in the library with the new object files.
 
-**Note:** we can use the '-r' flag with ar to see the contents of our library
+**Note:** we can use the '-t' flag with ar to see the contents of our library
 
 **Note:** we can also use "nm" to extract external symbol names from an executable.
 
@@ -81,4 +81,21 @@ ld -r -o graphics.o *.o
 "-r" Generates a relocatable output, i.e., generate an output file that
            can in turn serve as input to ld.  This is often called partial
            linking.
-
+## TL:DR - The steps to follow to create a static library	
+Given a set of functions in separate source ".c" code files the directory, with their prototypes in a main.h, use:
+```
+ gcc -c *.c
+```
+to produce an object file for each source code. Then:
+```
+ar rc mylib.a *.o
+```
+to create the static library. Then
+```
+ar -t mylib.a
+```
+to see the contents of our library. Then
+```
+ nm libmy.a
+ ```
+ list symbols (functions, variables, etc.) from library object files
