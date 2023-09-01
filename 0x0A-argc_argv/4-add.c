@@ -1,6 +1,6 @@
 #include "main.h"
 
-int _isdigit(int c);
+int _isdigit(char *c);
 int _recursive_add(int argc, char **argv);
 int _atoi(char *s);
 /**
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 
 	for (i = 1; i < argc; i++)
 	{
-		if (!(_isdigit(*argv[i])))
+		if (!(_isdigit(argv[i])))
 		{
 			printf("Error\n");
 			return (1);
@@ -31,12 +31,15 @@ int main(int argc, char **argv)
  * Return:  1 (Success)
  *			0 (Failure)
  */
-int _isdigit(int c)
+int _isdigit(char *c)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
+	while (*c)
+	{
+		if (!((*c >= 48 && *c <= 57) || *c == 45))
+			return (0);
+		c++;
+	}
+	return (1);
 }
 
 /**
