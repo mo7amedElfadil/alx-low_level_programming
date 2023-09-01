@@ -96,6 +96,6 @@ ar -t mylib.a
 ```
 to see the contents of our library. Then
 ```
- nm libmy.a
+ nm mylib.a
  ```
  list symbols (functions, variables, etc.) from library object files

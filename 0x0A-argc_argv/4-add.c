@@ -10,8 +10,26 @@ int _atoi(char *s);
  */
 int main(int argc, char **argv)
 {
-		 printf("%i\n", _recursive_add(argc, argv));
+	int result = _recursive_add(argc, argv);
+	if (result == -1)
+		printf("Error\n");
+	else
+		printf("%i\n", result);
 	return (0);
+}
+
+/**
+ * _isdigit - checks if a character is a digit
+ * @c: Character to be tested
+ * Return:  1 (Success)
+ *			0 (Failure)
+ */
+int _isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -67,6 +85,8 @@ int _recursive_add(int argc, char **argv)
 {
 	if (argc == 1)
 		return (0);
+	else if (!(_isdigit(*argv[argc - 1])))
+		return (-1);
 	else
 		return (_atoi(argv[argc - 1]) + _recursive_add(argc - 1, argv));
 }
