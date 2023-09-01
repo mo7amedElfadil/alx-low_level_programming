@@ -1,5 +1,6 @@
 #include "main.h"
 
+int _isdigit(int c);
 int _recursive_add(int argc, char **argv);
 int _atoi(char *s);
 /**
@@ -10,11 +11,17 @@ int _atoi(char *s);
  */
 int main(int argc, char **argv)
 {
-	int result = _recursive_add(argc, argv);
-	if (result == -1)
-		printf("Error\n");
-	else
-		printf("%i\n", result);
+	int i, result = _recursive_add(argc, argv);
+
+	for (i = 1; i < argc; i++)
+	{
+		if (!(_isdigit(*argv[i])))
+		{
+			printf("Error\n");
+			return (-1);
+		}
+	}
+	printf("%i\n", result);
 	return (0);
 }
 
@@ -85,8 +92,5 @@ int _recursive_add(int argc, char **argv)
 {
 	if (argc == 1)
 		return (0);
-	else if (!(_isdigit(*argv[argc - 1])))
-		return (-1);
-	else
-		return (_atoi(argv[argc - 1]) + _recursive_add(argc - 1, argv));
+	return (_atoi(argv[argc - 1]) + _recursive_add(argc - 1, argv));
 }
