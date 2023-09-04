@@ -8,6 +8,7 @@ int **alloc_grid(int width, int height);
 void free_grid(int **grid, int height);
 int _strlen_recursion(char *s);
 char *_strncpy(char *dest, char *src, int n);
+char *_strcat(char *dest, char *src);
 #endif
 
 #include <stdio.h>
