@@ -11,6 +11,8 @@ char *_strncpy(char *dest, char *src, int n);
 char *_strcat(char *dest, char *src);
 char *argstostr(int ac, char **av);
 char **strtow(char *str);
+int word_count(char *str);
+char *_strncat(char *dest, char *src, int n);
 #endif
 
 #include <stdio.h>
