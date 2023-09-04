@@ -19,8 +19,8 @@ char *argstostr(int ac, char **av)
 
 	for  (i = 0; i < ac; i++)
 	{
-		sum += _strlen_recursion(av[i]) + 1;
-		ptr = realloc(ptr, sum * sizeof(*ptr));
+		sum += _strlen_recursion(av[i]);
+		ptr = realloc(ptr, sum * sizeof(*ptr) + i + 1);
 
 		if (!ptr)
 		{
