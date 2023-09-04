@@ -29,10 +29,10 @@ char *argstostr(int ac, char **av)
 	sum++;
 	ptr = (char *)realloc(ptr, sum * sizeof(*ptr));
 	if (!ptr)
-		{
-			free(ptr);
-			return (NULL);
-		}
+	{
+		free(ptr);
+		return (NULL);
+	}
 	for  (i = 0; i < ac; i++)
 	{
 		_strcat(ptr, av[i]);
