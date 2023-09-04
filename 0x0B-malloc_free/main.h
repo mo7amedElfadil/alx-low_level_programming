@@ -9,6 +9,8 @@ void free_grid(int **grid, int height);
 int _strlen_recursion(char *s);
 char *_strncpy(char *dest, char *src, int n);
 char *_strcat(char *dest, char *src);
+char *argstostr(int ac, char **av);
+char **strtow(char *str);
 #endif
 
 #include <stdio.h>
