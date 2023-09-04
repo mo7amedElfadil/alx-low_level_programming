@@ -12,7 +12,7 @@ char *_strdup(char *str)
 
 	size = _strlen_recursion(str);
 	ptr = malloc(size * sizeof(*ptr));
-	if (ptr == NULL || size == 0)
+	if (ptr == NULL)
 		return (NULL);
 	ptr = _strncpy(ptr, str, size);
 
