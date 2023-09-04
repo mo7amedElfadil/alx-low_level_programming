@@ -27,6 +27,8 @@ char **strtow(char *str)
 		{
 			l++;
 		}
+		if (!str[l])
+			break;
 		ptr[i] = (char *)malloc((l) * sizeof(**ptr));
 		if (!ptr[i])
 		{
