@@ -15,7 +15,7 @@ char **strtow(char *str)
 	{
 		return (NULL);
 	}
-	ptr = (char **)malloc(words * sizeof(*ptr));
+	ptr = (char **)malloc((words + 1) * sizeof(*ptr));
 	for (i = 0; i < words && *str ; i++)
 	{
 		for (; *str && *str == ' '; str++)
@@ -23,13 +23,14 @@ char **strtow(char *str)
 		}
 		if (!*str)
 			break;
-
 		l = 0;
 		while (str[l] != ' ' && str[l])
 		{
 			l++;
 		}
-				ptr[i] = (char *)malloc((l) * sizeof(**ptr));
+
+
+		ptr[i] = (char *)malloc((l + 1) * sizeof(**ptr));
 		if (!ptr[i])
 		{
 			for (; i >= 0;)
@@ -40,19 +41,8 @@ char **strtow(char *str)
 		_strncat(ptr[i], str, l);
 		str += l;
 	}
-	return (ptr);
-}
-/**
- * _strlen_recursion - returns the length of a string
- * @s: string find length of
- * Return: length of string
- */
-int _strlen_recursion(char *s)
-{
-	if (!(*s))
-		return (0);
-	return (1 + _strlen_recursion(s + 1));
 
+	return (ptr);
 }
 /**
  * _strncat - function that concatenates two strings
@@ -78,7 +68,6 @@ char *_strncat(char *dest, char *src, int n)
 		*(dest + l + m) = *(src + m);
 		m++;
 	}
-	*(dest + l + m) = '\0';
 	return (dest);
 }
 
@@ -94,7 +83,7 @@ int word_count(char *str)
 
 	for (i = 0; str[i]; i++)
 	{
-		if (str[i] == ' ')
+		if (str[i] == ' ' || !str[i + 1])
 		{
 			if (str[i + 1] != ' ')
 				n++;
