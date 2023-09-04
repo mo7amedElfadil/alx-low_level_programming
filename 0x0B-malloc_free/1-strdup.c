@@ -11,8 +11,9 @@ char *_strdup(char *str)
 	int  size;
 
 	size = _strlen_recursion(str);
+	printf("%i \n", size);
 	ptr = malloc(size * sizeof(*ptr));
-	if (ptr == NULL)
+	if (ptr == NULL || str == NULL)
 		return (NULL);
 	ptr = _strncpy(ptr, str, size);
 
@@ -48,11 +49,6 @@ char *_strncpy(char *dest, char *src, int n)
 	while (l < n && *(src + l) != '\0')
 	{
 		*(dest + l) = *(src + l);
-		l++;
-	}
-	while (l < n)
-	{
-		*(dest + l) = '\0';
 		l++;
 	}
 	return (dest);
