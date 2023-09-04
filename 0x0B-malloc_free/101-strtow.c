@@ -21,15 +21,15 @@ char **strtow(char *str)
 		for (; *str && *str == ' '; str++)
 		{
 		}
+		if (!*str)
+			break;
 
 		l = 0;
 		while (str[l] != ' ' && str[l])
 		{
 			l++;
 		}
-		if (!str[l])
-			break;
-		ptr[i] = (char *)malloc((l) * sizeof(**ptr));
+				ptr[i] = (char *)malloc((l) * sizeof(**ptr));
 		if (!ptr[i])
 		{
 			for (; i >= 0;)
