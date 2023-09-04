@@ -11,7 +11,7 @@ char **strtow(char *str)
 	char **ptr = NULL;
 
 	words = word_count(str);
-	if (!str || words == 0)
+	if (!str || words == 0 || _strlen_recursion(str) == 0)
 	{
 		return (NULL);
 	}
