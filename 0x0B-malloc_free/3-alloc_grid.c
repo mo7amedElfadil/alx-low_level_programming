@@ -19,8 +19,8 @@ int **alloc_grid(int width, int height)
 	}
 	for (i = 0; i < height; i++)
 	{
-		arr[i] = realloc(arr[i], width *  sizeof(int) + 1);
-		if (!arr)
+		arr[i] = realloc(arr[i], width *  sizeof(int));
+		if (!arr[i] || !arr)
 		{
 			free(arr);
 			return (NULL);
