@@ -9,7 +9,7 @@
 char *argstostr(int ac, char **av)
 {
 	int i, sum = 0;
-	char *ptr = NULL;
+	char *ptr;
 
 	if (!av || ac == 0)
 	{
@@ -19,7 +19,7 @@ char *argstostr(int ac, char **av)
 
 	for  (i = 0; i < ac; i++)
 	{
-		sum += _strlen_recursion(av[i]);
+		sum += _strlen_recursion(av[i]) + 1;
 		ptr = realloc(ptr, sum * sizeof(*ptr));
 
 		if (!ptr)
