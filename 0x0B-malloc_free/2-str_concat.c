@@ -11,6 +11,10 @@ char *str_concat(char *s1, char *s2)
 	char *ptr;
 	int  size;
 
+	if (!s1)
+		*s1 = '\0';
+	if (!s2)
+		*s2 = '\0';
 	size = _strlen_recursion(s1);
 	size += _strlen_recursion(s2);
 
