@@ -20,7 +20,7 @@ char *argstostr(int ac, char **av)
 	for  (i = 0; i < ac; i++)
 	{
 		sum += _strlen_recursion(av[i]) + 1;
-		ptr = (char *)realloc(ptr, sum * sizeof(*ptr));
+		ptr = (char *)realloc(ptr, sum * sizeof(char));
 
 		if (!ptr)
 		{
