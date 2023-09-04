@@ -12,9 +12,9 @@ char *str_concat(char *s1, char *s2)
 	int  size;
 
 	if (!s1)
-		*s1 = '\0';
-	if (!s2)
-		*s2 = '\0';
+		_strcat(s1, "");
+			if (!s2)
+		_strcat(s2, "");
 	size = _strlen_recursion(s1);
 	size += _strlen_recursion(s2);
 
