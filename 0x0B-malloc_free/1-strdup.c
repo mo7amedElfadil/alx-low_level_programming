@@ -10,9 +10,11 @@ char *_strdup(char *str)
 	char *ptr;
 	int  size;
 
+	if (!str)
+		return (NULL);
 	size = _strlen_recursion(str);
 	ptr = malloc(size * sizeof(*ptr) + 1);
-	if (ptr == NULL || (!str))
+	if (!ptr)
 		return (NULL);
 
 	_strncpy(ptr, str, size);
