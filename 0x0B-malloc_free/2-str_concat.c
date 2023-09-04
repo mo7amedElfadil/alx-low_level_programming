@@ -17,9 +17,10 @@ char *str_concat(char *s1, char *s2)
 		_strcat(s1, "");
 	}
 	if (!s2)
-		{
+	{
 		s2 = realloc(s2, 1);
-	}	_strcat(s2, "");
+		_strcat(s2, "");
+	}
 	size = _strlen_recursion(s1);
 	size += _strlen_recursion(s2);
 
