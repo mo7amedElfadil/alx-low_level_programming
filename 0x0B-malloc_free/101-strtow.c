@@ -7,18 +7,15 @@
  */
 char **strtow(char *str)
 {
-	int words, len, i,l;
+	int words, i, l;
 	char **ptr = NULL;
 
-	len = _strlen_recursion(str);
 	words = word_count(str);
-	if (!str || len == 0)
+	if (!str || words == 0)
 	{
 		return (NULL);
 	}
-
 	ptr = (char **)malloc(words * sizeof(*ptr));
-
 	for (i = 0; i < words && *str ; i++)
 	{
 		for (; *str && *str == ' '; str++)
@@ -28,25 +25,19 @@ char **strtow(char *str)
 		l = 0;
 		while (str[l] != ' ' && str[l])
 		{
-
 			l++;
 		}
 		ptr[i] = (char *)malloc((l) * sizeof(**ptr));
 		if (!ptr[i])
 		{
 			for (; i >= 0;)
-			{
 				free(ptr[--i]);
-				free(ptr);
-				return (NULL);
-			}
+			free(ptr);
+			return (NULL);
 		}
-
 		_strncat(ptr[i], str, l);
 		str += l;
-
 	}
-
 	return (ptr);
 }
 /**
@@ -103,7 +94,7 @@ int word_count(char *str)
 	{
 		if (str[i] == ' ')
 		{
-			if (str[i+1] != ' ')
+			if (str[i + 1] != ' ')
 				n++;
 		}
 
