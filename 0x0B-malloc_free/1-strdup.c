@@ -11,7 +11,6 @@ char *_strdup(char *str)
 	int  size;
 
 	size = _strlen_recursion(str);
-	printf("%i \n", size);
 	ptr = malloc(size * sizeof(*ptr));
 	if (ptr == NULL || str == NULL)
 		return (NULL);
