@@ -45,6 +45,18 @@ char **strtow(char *str)
 	return (ptr);
 }
 /**
+ * _strlen_recursion - returns the length of a string
+ * @s: string find length of
+ * Return: length of string
+ */
+int _strlen_recursion(char *s)
+{
+	if (!(*s))
+		return (0);
+	return (1 + _strlen_recursion(s + 1));
+
+}
+/**
  * _strncat - function that concatenates two strings
  *			by appending the n bytes from src string to the dest string,
  *			overwriting the terminating null byte (\0)
@@ -79,16 +91,18 @@ char *_strncat(char *dest, char *src, int n)
 
 int word_count(char *str)
 {
-	int i, n;
+	int i, l, n = 0;
+	char l_char;
 
-	for (i = 0; str[i]; i++)
+	l = _strlen_recursion(str);
+	l_char = str[0];
+	for (i = 0; i <= l; i++)
 	{
-		if (str[i] == ' ' || !str[i + 1])
+		if ((str[i] == ' ' || str[i] == '\0') && l_char != ' ')
 		{
-			if (str[i + 1] != ' ')
-				n++;
+			n++;
 		}
-
+		l_char = str[i];
 	}
 	return (n);
 }
