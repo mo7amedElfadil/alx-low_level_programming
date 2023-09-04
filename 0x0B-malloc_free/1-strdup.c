@@ -11,11 +11,11 @@ char *_strdup(char *str)
 	int  size;
 
 	size = _strlen_recursion(str);
-	ptr = malloc(size * sizeof(*ptr));
-	if (ptr == NULL || str == NULL)
+	ptr = malloc(size * sizeof(*ptr) + 1);
+	if (ptr == NULL || (!str))
 		return (NULL);
-	ptr = _strncpy(ptr, str, size);
 
+	_strncpy(ptr, str, size);
 	return (ptr);
 }
 
