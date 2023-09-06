@@ -13,6 +13,12 @@ char *argstostr(int ac, char **av);
 char **strtow(char *str);
 int word_count(char *str);
 char *_strncat(char *dest, char *src, int n);
+char ***word_matrix(char *str);
+char **extract_sentence(char *str);
+char *extract_word(char *str);
+int len_sentence(char *str);
+int len_word(char *str);
+int count_sentences(char *str);
 #endif
 
 #include <stdio.h>
