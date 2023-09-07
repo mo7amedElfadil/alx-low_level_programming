@@ -24,16 +24,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 
 	size = _strlen_recursion(s1) +
-		(n <= _strlen_recursion(s2) ? n : _strlen_recursion(s2));
+		(n < _strlen_recursion(s2) ? n : _strlen_recursion(s2));
+	/* printf(" size %u\n", size); */
 	ptr = malloc(sizeof(*s1) * size + 1);
 	if (!ptr)
 		return (NULL);
 
 	_strncat(ptr, s1, size);
-	printf("content %s, size %u", ptr, _strlen_recursion(ptr));
+	/* printf("content %s, size %u", ptr, _strlen_recursion(ptr)); */
 	_strncat(ptr, s2, n);
 
-	printf("content %s, size %u", ptr, _strlen_recursion(ptr));
+	/* printf("content %s, size %u", ptr, _strlen_recursion(ptr)); */
 	return (ptr);
 }
 
