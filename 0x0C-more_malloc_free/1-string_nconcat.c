@@ -62,14 +62,16 @@ char *_strncat(char *dest, char *src, unsigned int n)
 {
 	unsigned int l = 0, m = 0;
 
-	while (*(dest + l) != '\0')
+	while (*(dest + l))
 	{
 		l++;
 	}
-	while (m < n && *(src + m) != '\0')
+	while (m < n && *(src + m) )
 	{
 		*(dest + l + m) = *(src + m);
 		m++;
 	}
+	*(dest + l + m) = *(src + m);
+
 	return (dest);
 }
