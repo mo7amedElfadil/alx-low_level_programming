@@ -13,15 +13,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *ptr = NULL;
 
 	if (!s1)
-	{
-		s1 = malloc(1);
 		s1 = "";
-	}
 	if (!s2)
-	{
-		s2 = malloc(1);
 		s2 = "";
-	}
 	n = (n < _strlen_recursion(s2) ? n : _strlen_recursion(s2));
 	size = 1 + _strlen_recursion(s1) + n;
 	ptr =	malloc_checked(sizeof(*ptr) * (size));
