@@ -28,7 +28,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (!ptr)
 		return (NULL);
 
-	_strncat(ptr, s1, (size - n - 1) );
+	_strncat(ptr, s1, (size - n - 1));
 	/* printf("content %s, size %u", ptr, _strlen_recursion(ptr)); */
 	_strncat(ptr, s2, n);
 
