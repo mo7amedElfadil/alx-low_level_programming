@@ -24,10 +24,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	for (i = 0; i < size - 1; i++)
 	{
-		if (i < _strlen_recursion(s1))
+		if (i < size - n - 1)
 			ptr[i] = s1[i];
 		else
-			ptr[i] = s2[i - _strlen_recursion(s1)];
+			ptr[i] = s2[i - (size - n - 1)];
 	}
 		ptr[i] = 0;
 		/* _strncat(ptr, s1, (size - n - 1)); */
