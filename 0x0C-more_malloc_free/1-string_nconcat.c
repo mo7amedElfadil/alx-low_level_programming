@@ -23,7 +23,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 	}
 
-	size = _strlen_recursion(s1) +
+	size = 1 + _strlen_recursion(s1) +
 		(n < _strlen_recursion(s2) ? n : _strlen_recursion(s2));
 	ptr =	malloc_checked(sizeof(*ptr) * (size));
 	if (!ptr)
