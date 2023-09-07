@@ -8,12 +8,10 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *arr;
+	void *arr;
 
 	arr = malloc(size * nmemb);
 	if (!arr || size == 0 || nmemb == 0)
 		return (NULL);
-	for (nmemb -= 1; nmemb; nmemb--)
-		arr[nmemb] = 0;
 	return (arr);
 }
