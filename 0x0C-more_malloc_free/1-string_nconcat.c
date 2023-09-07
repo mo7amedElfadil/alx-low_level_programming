@@ -9,7 +9,7 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int  size;
+	unsigned int  size, i;
 	char *ptr = NULL;
 
 	if (!s1)
@@ -18,15 +18,21 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 	n = (n < _strlen_recursion(s2) ? n : _strlen_recursion(s2));
 	size = 1 + _strlen_recursion(s1) + n;
-	ptr =	malloc_checked(sizeof(*ptr) * (size));
+	ptr =	malloc(size);
 	if (!ptr)
 		return (NULL);
 
-	_strncat(ptr, s1, (size - n - 1));
-	/* printf("content %s, size %u", ptr, _strlen_recursion(ptr)); */
-	_strncat(ptr, s2, n);
+	for (i = 0; i < size - 1; i++)
+	{
+		if (i < _strlen_recursion(s1))
+			ptr[i] = s1[i];
+		else
+			ptr[i] = s2[i - _strlen_recursion(s1)];
+	}
+		ptr[i] = 0;
+		/* _strncat(ptr, s1, (size - n - 1)); */
+		/* _strncat(ptr, s2, n); */
 
-	/* printf("content %s, size %u", ptr, _strlen_recursion(ptr)); */
 	return (ptr);
 }
 
