@@ -72,7 +72,7 @@ char *_strncat(char *dest, char *src, unsigned int n)
 		*(dest + l + m) = *(src + m);
 		m++;
 	}
-	*(dest + l + m) = *(src + m);
+	*(dest + l + m) = 0;
 
 	return (dest);
 }
