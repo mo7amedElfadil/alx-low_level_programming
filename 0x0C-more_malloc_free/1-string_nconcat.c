@@ -25,9 +25,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	size = _strlen_recursion(s1) +
 		(n < _strlen_recursion(s2) ? n : _strlen_recursion(s2));
-	/* printf(" size %u\n", size); */
-	ptr =	malloc_checked(sizeof(*s1) * (size + 1));
-		/* malloc(sizeof(*s1) * size + 1); */
+	ptr =	malloc_checked(sizeof(*s1) * (size));
 	if (!ptr)
 		return (NULL);
 
