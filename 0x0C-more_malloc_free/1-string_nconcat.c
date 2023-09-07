@@ -26,7 +26,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	size = _strlen_recursion(s1) +
 		(n < _strlen_recursion(s2) ? n : _strlen_recursion(s2));
 	/* printf(" size %u\n", size); */
-	ptr = malloc(sizeof(*s1) * size + 1);
+	ptr =	malloc_checked(size + 1);
+		/* malloc(sizeof(*s1) * size + 1); */
 	if (!ptr)
 		return (NULL);
 
@@ -77,4 +78,18 @@ char *_strncat(char *dest, char *src, unsigned int n)
 	*(dest + l + m) = *(src + m);
 
 	return (dest);
+}
+/**
+ * malloc_checked - allocates memory using malloc
+ * @b: sizeof(data_type) * length
+ * Return: ptr to the string destination
+ */
+void *malloc_checked(unsigned int b)
+{
+	void *c = malloc(b);
+
+	if (!c)
+		exit(98);
+	else
+		return (c);
 }
