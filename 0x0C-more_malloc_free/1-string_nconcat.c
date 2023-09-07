@@ -30,8 +30,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 
 	_strncat(ptr, s1, size);
+	printf("content %s, size %u", ptr, _strlen_recursion(ptr));
 	_strncat(ptr, s2, n);
 
+	printf("content %s, size %u", ptr, _strlen_recursion(ptr));
 	return (ptr);
 }
 
@@ -66,7 +68,7 @@ char *_strncat(char *dest, char *src, unsigned int n)
 	{
 		l++;
 	}
-	while (m < n && *(src + m) )
+	while (m < n && *(src + m))
 	{
 		*(dest + l + m) = *(src + m);
 		m++;
