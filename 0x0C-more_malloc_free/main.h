@@ -14,10 +14,10 @@ int print_output(char **argv);
 void exit_resolution(void);
 void print_result(char *result,int len);
 
-
-
-#endif
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#endif
+
+
