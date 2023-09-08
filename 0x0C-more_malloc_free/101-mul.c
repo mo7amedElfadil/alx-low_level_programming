@@ -127,18 +127,20 @@ void error_resolution(void)
 int main(int argc, char **argv)
 {
 	char *result = NULL, *x, *y;
-	int i, j, k, size1, size2, carry = 0, c2, res;
+	int i, j, k, size1, size2, carry = 0, c2, res, len;
 
 	arg_test(argc, argv);
 	x = argv[1];
 	y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
-	result = _calloc((size1 + size2 + 1), sizeof(char));
+	len = size1 + size2 + 1;
+	result = malloc(sizeof(char) * len);
 	if (!result)
 		error_resolution;
-	reverse_str(x, size1);
-	reverse_str(y, size2);
+	for (i = 0; i < len; i++)
+		result[i] = 0;
+	reverse_str(x, size1), reverse_str(y, size2);
 	for (i = 0; i < size1; i++)
 	{
 		carry = 0;
@@ -154,10 +156,12 @@ int main(int argc, char **argv)
 	for (k = 0; k < size1 + size2 - 1; k++)
 		result[k] += 48;
 	reverse_str(result, size1 + size2);
-	for (k = 0; k < size1 + size2; k++)
+	printf("\n");
+	for (k = 0; k < len; k++)
 	{
 		printf("%c", result[k]);
 	}
 	printf("\n");
+	free(result);
 	return (0);
 }
