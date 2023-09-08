@@ -138,7 +138,7 @@ int main(int argc, char **argv)
 	result = malloc(sizeof(char) * len);
 	if (!result)
 		error_resolution;
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len - 1; i++)
 		result[i] = 0;
 	reverse_str(x, size1), reverse_str(y, size2);
 	for (i = 0; i < size1; i++)
@@ -153,15 +153,14 @@ int main(int argc, char **argv)
 		if (carry > 0)
 			result[i + j] += carry;
 	}
-	for (k = 0; k < size1 + size2 - 1; k++)
+	for (k = 0; k < len - 2 ; k++)
 		result[k] += 48;
-	reverse_str(result, size1 + size2 - 1);
-	printf("\n");
+	reverse_str(result, len);
 	for (k = 0; k < len; k++)
 	{
 		putchar(result[k]);
 	}
-	printf("\n");
+	putchar('\n');
 	free(result);
 	return (0);
 }
