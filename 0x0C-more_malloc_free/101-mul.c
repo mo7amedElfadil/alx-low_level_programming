@@ -11,8 +11,21 @@ int main(int argc, char **argv)
 	{
 		printf("Error\n");
 		exit(98);
+		return(1);
 	}
 
+	for (i = 1; i < argc ; i++)
+	{
+		for (j = 0; argv[i][j]; j++)
+		{
+			if (!(_isdigit(argv[i][j])))
+			{
+				printf("Error\n");
+				exit(98);
+				return (1);
+			}
+		}
+	}
 
 	return (0);
 }
