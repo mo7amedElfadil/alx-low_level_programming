@@ -170,7 +170,6 @@ int main(int argc, char **argv)
 
 	for (k = 0; k < len - 1; k++)
 		result[k] += 48;
-	printf("\nlen %i \n\n\n",_strlen_recursion(result));
 	_print_rev_recursion(result);
 	putchar('\n');
 	free(result);
