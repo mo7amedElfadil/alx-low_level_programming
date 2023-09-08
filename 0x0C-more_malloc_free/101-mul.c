@@ -28,17 +28,6 @@ int _isdigit(int c)
 }
 
 /**
- * mul - multiplies 2 character integers
- * @a: first character
- * @b: second character
- * Return: integer value of the result of the multiplication
- *
- */
-/* int mul(char a, char b) */
-/* { */
-/* 	return ((a - 48) * (b - 48)); */
-/* } */
-/**
  * reverse_str - function that reverses an array.
  * @a: pointer to an array.
  * @n: number of elements in the array.
