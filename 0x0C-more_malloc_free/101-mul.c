@@ -155,11 +155,11 @@ int main(int argc, char **argv)
 	}
 	for (k = 0; k < size1 + size2 - 1; k++)
 		result[k] += 48;
-	reverse_str(result, size1 + size2);
+	reverse_str(result, size1 + size2 - 1);
 	printf("\n");
 	for (k = 0; k < len; k++)
 	{
-		printf("%c", result[k]);
+		putchar(result[k]);
 	}
 	printf("\n");
 	free(result);
