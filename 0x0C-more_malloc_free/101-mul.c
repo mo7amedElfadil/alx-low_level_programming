@@ -61,8 +61,7 @@ void arg_test(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		printf("Error\n");
-		exit(98);
+		exit_resolution();
 	}
 
 	for (i = 1; i < argc; i++)
@@ -71,24 +70,36 @@ void arg_test(int argc, char **argv)
 		{
 			if (!(_isdigit(argv[i][j])))
 			{
-				printf("Error\n");
-				exit(98);
+				exit_resolution();
 			}
 		}
 	}
+}
+void exit_resolution(void)
+{
+	printf("Error\n");
+	exit(98);
+
 }
 /**
  * _print_rev_recursion - prints a string in reverse, followed by a new line
  * @s: string to be printed
  */
-void _print_rev_recursion(char *s)
+void print_result(char *result, int len)
 {
-	if (!(*s))
-		return;
-	_print_rev_recursion(s + 1);
-	_putchar(*s);
+	int k, flag = 0;
 
+	for (k = 0; k < len; k++)
+	{
+		if (result[k])
+			flag = 1;
+		if (flag)
+			_putchar(result[k] + 48);
+	}
+	if (!flag)
+		_putchar('0');
 
+	_putchar('\n');
 }
 /*
  * print_output - prints and calculates the output
@@ -99,12 +110,12 @@ void _print_rev_recursion(char *s)
 int print_output(char **argv)
 {
 	char *result = NULL, *x, *y;
-	int i, j, k, size1, size2, carry = 0, len;
+	int i, j, size1, size2, carry = 0, len;
 
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
-	len = size1 + size2;
+	len = size1 + size2 + 1;
 	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
@@ -126,11 +137,8 @@ int print_output(char **argv)
 		if (carry > 0)
 			result[i + j] += carry;
 	}
-
-	for (k = 0; k < len - 1; k++)
-		result[k] += 48;
-	_print_rev_recursion(result);
-	putchar('\n');
+	reverse_str(result, len);
+	print_result(result, len);
 	free(result);
 	return (0);
 }
@@ -143,7 +151,6 @@ int print_output(char **argv)
  */
 int main(int argc, char **argv)
 {
-
 	arg_test(argc, argv);
 	return (print_output(argv));
 }

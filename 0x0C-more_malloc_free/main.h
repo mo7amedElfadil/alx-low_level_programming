@@ -10,8 +10,11 @@ char *_strncat(char *dest, char *src, unsigned int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int _isdigit(int c);
 void error_resolution(void);
-void _print_rev_recursion(char *s);
 int print_output(char **argv);
+void exit_resolution(void);
+void print_result(char *result,int len);
+
+
 
 #endif
 
