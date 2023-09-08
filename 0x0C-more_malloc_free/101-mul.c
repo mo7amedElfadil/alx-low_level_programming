@@ -119,7 +119,6 @@ int print_output(char **argv)
 	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
-		free(result);
 		return (1);
 	}
 	for (i = 0; i < len; i++)
