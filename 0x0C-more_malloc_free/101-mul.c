@@ -106,8 +106,7 @@ int main(int argc, char **argv)
 	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
-		printf("Error\n");
-		exit(98);
+		return (1);
 	}
 	for (i = 0; i < len - 1; i++)
 		result[i] = 0;
@@ -124,7 +123,7 @@ int main(int argc, char **argv)
 		if (carry > 0)
 			result[i + j] += carry;
 	}
-	for (k = 0; k < len - 2 ; k++)
+	for (k = 0; k < len - 2; k++)
 		result[k] += 48;
 	reverse_str(result, len);
 	for (k = 0; k < len; k++)
