@@ -124,7 +124,25 @@ int main(int argc, char **argv)
 	char *result = NULL, *x, *y;
 	int i, j, k, size1, size2, carry = 0, c2, res, len;
 
-	arg_test(argc, argv);
+	/* arg_test(argc, argv); */
+	if (argc != 3)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+
+	for (i = 1; i < argc ; i++)
+	{
+		for (j = 0; argv[i][j]; j++)
+		{
+			if (!(_isdigit(argv[i][j])))
+			{
+				printf("Error\n");
+				exit(98);
+			}
+		}
+	}
+
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
