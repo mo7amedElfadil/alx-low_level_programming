@@ -124,27 +124,7 @@ int main(int argc, char **argv)
 	char *result = NULL, *x, *y;
 	int i, j, k, size1, size2, carry = 0, c2, res, len;
 
-	/* arg_test(argc, argv); */
-	/* int i, j; */
-
-	if (argc != 3)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
-	for (i = 1; i < argc ; i++)
-	{
-		for (j = 0; argv[i][j]; j++)
-		{
-			if (!(_isdigit(argv[i][j])))
-			{
-				printf("Error\n");
-				exit(98);
-			}
-		}
-	}
-
+	arg_test(argc, argv);
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
@@ -152,8 +132,6 @@ int main(int argc, char **argv)
 	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
-		printf("Error\n");
-		exit(98);
 		return (1);
 	}
 	for (i = 0; i < len; i++)
@@ -171,8 +149,10 @@ int main(int argc, char **argv)
 		if (carry > 0)
 			result[i + j] += carry;
 	}
+
 	for (k = 0; k < len - 1; k++)
 		result[k] += 48;
+	printf("\nlen %i \n\n\n",_strlen_recursion(result));
 	_print_rev_recursion(result);
 	putchar('\n');
 	free(result);
