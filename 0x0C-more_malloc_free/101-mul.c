@@ -102,13 +102,15 @@ int main(int argc, char **argv)
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
-	len = size1 + size2 + 1;
+	len = size1 + size2;
 	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
+		printf("Error\n");
+		exit(98);
 		return (1);
 	}
-	for (i = 0; i < len - 1; i++)
+	for (i = 0; i < len; i++)
 		result[i] = 0;
 	reverse_str(x, size1), reverse_str(y, size2);
 	for (i = 0; i < size1; i++)
@@ -123,9 +125,9 @@ int main(int argc, char **argv)
 		if (carry > 0)
 			result[i + j] += carry;
 	}
-	for (k = 0; k < len - 2; k++)
+	reverse_str(result, len - 1);
+	for (k = 0; k < len - 1; k++)
 		result[k] += 48;
-	reverse_str(result, len);
 	for (k = 0; k < len; k++)
 		putchar(result[k]);
 	putchar('\n');
