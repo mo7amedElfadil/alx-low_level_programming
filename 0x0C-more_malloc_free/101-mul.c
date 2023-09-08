@@ -34,10 +34,10 @@ int _isdigit(int c)
  * Return: integer value of the result of the multiplication
  *
  */
-int mul(char a, char b)
-{
-	return ((a - 48) * (b - 48));
-}
+/* int mul(char a, char b) */
+/* { */
+/* 	return ((a - 48) * (b - 48)); */
+/* } */
 /**
  * reverse_str - function that reverses an array.
  * @a: pointer to an array.
@@ -106,8 +106,6 @@ int main(int argc, char **argv)
 	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
-		printf("Error\n");
-		exit(98);
 		return (1);
 	}
 	for (i = 0; i < len; i++)
@@ -118,7 +116,7 @@ int main(int argc, char **argv)
 		carry = 0;
 		for (j = 0; j < size2; j++)
 		{
-			carry += mul(x[i], y[j]) + result[i + j];
+			carry += (x[i] - 48) * (y[j] - 48) + result[i + j];
 			result[i + j] = carry % 10;
 			carry /= 10;
 		}
