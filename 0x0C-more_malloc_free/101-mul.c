@@ -28,6 +28,17 @@ int _isdigit(int c)
 }
 
 /**
+ * mul - multiplies 2 character integers
+ * @a: first character
+ * @b: second character
+ * Return: integer value of the result of the multiplication
+ *
+ */
+int mul(char a, char b)
+{
+	return ((a - 48) * (b - 48));
+}
+/**
  * reverse_str - function that reverses an array.
  * @a: pointer to an array.
  * @n: number of elements in the array.
@@ -75,7 +86,30 @@ void arg_test(int argc, char **argv)
 		}
 	}
 }
+/**
+ * _print_rev_recursion - prints a string in reverse, followed by a new line
+ * @s: string to be printed
+ */
+void _print_rev_recursion(char *s)
+{
+	if (!(*s))
+		return;
+	_print_rev_recursion(s + 1);
+	_putchar(*s);
 
+
+}
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 /**
  * main - Entry point
  * @argc: argument count
@@ -91,7 +125,7 @@ int main(int argc, char **argv)
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
-	len = size1 + size2;
+	len = size1 + size2 + 1;
 	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
@@ -105,18 +139,19 @@ int main(int argc, char **argv)
 		carry = 0;
 		for (j = 0; j < size2; j++)
 		{
-			carry += (x[i] - 48) * (y[j] - 48) + result[i + j];
+			carry += mul(x[i], y[j]) + result[i + j];
 			result[i + j] = carry % 10;
 			carry /= 10;
 		}
 		if (carry > 0)
 			result[i + j] += carry;
 	}
-	reverse_str(result, len - 1);
+	/* reverse_str(result, len + 1); */
 	for (k = 0; k < len - 1; k++)
 		result[k] += 48;
-	for (k = 0; k < len; k++)
-		putchar(result[k]);
+	_print_rev_recursion(result);
+	/* for (k = 0; k < len; k++) */
+	/* 	putchar(result[k]); */
 	putchar('\n');
 	free(result);
 	return (0);
