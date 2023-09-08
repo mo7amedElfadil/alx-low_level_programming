@@ -101,7 +101,7 @@ void _print_rev_recursion(char *s)
 int print_output(char **argv)
 {
 	char *result = NULL, *x, *y;
-	int i, j, k, size1, size2, carry = 0, c2, res, len;
+	int i, j, k, size1, size2, carry = 0, len;
 
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
@@ -136,17 +136,7 @@ int print_output(char **argv)
 	free(result);
 	return (0);
 }
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
+
 /**
  * main - Entry point
  * @argc: argument count
