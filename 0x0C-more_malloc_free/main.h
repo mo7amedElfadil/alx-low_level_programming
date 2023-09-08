@@ -15,4 +15,6 @@ int print_output(char **argv);
 
 #endif
 
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
