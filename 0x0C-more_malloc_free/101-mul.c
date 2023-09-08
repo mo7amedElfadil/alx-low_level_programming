@@ -75,6 +75,9 @@ void arg_test(int argc, char **argv)
 		}
 	}
 }
+/**
+ * exit_resolution - used to print Error and exit with a status 98
+ */
 void exit_resolution(void)
 {
 	printf("Error\n");
@@ -82,8 +85,9 @@ void exit_resolution(void)
 
 }
 /**
- * _print_rev_recursion - prints a string in reverse, followed by a new line
- * @s: string to be printed
+ * print_result - prints the result
+ * @result: pointer to the result of the multiplication
+ * @len: length of the result ptr
  */
 void print_result(char *result, int len)
 {
@@ -101,7 +105,8 @@ void print_result(char *result, int len)
 
 	_putchar('\n');
 }
-/*
+
+/**
  * print_output - prints and calculates the output
  * @argv: arguemnt vector
  * Return: 1 Failure
