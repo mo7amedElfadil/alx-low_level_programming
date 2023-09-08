@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 /**
  * _strlen_recursion - returns the length of a string
  * @s: string find length of
@@ -36,7 +39,7 @@ int _isdigit(int c)
  */
 int mul(char a, char b)
 {
-	return (a * b);
+	return ((a - 48) * (b - 48));
 }
 /**
  * reverse_str - function that reverses an array.
@@ -90,12 +93,12 @@ void arg_test(int argc, char **argv)
  * _print_rev_recursion - prints a string in reverse, followed by a new line
  * @s: string to be printed
  */
-void _print_rev_recursion(int *s)
+void _print_rev_recursion(char *s)
 {
 	if (!(*s))
 		return;
 	_print_rev_recursion(s + 1);
-	_putchar(*s + '0');
+	_putchar(*s);
 
 
 }
@@ -118,15 +121,15 @@ int _putchar(char c)
  */
 int main(int argc, char **argv)
 {
-	char *x, *y;
-	int *result = NULL, i, j, k, size1, size2, carry = 0, c2, res, len;
+	char *result = NULL, *x, *y;
+	int i, j, k, size1, size2, carry = 0, c2, res, len;
 
 	arg_test(argc, argv);
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
-	len = size1 + size2 ;
-	result = malloc(sizeof(int) * len);
+	len = size1 + size2 + 1;
+	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
 		return (1);
@@ -147,8 +150,8 @@ int main(int argc, char **argv)
 			result[i + j] += carry;
 	}
 	/* reverse_str(result, len + 1); */
-	/* for (k = 0; k < len - 1; k++) */
-	/* 	result[k] += 48; */
+	for (k = 0; k < len - 1; k++)
+		result[k] += 48;
 	_print_rev_recursion(result);
 	/* for (k = 0; k < len; k++) */
 	/* 	putchar(result[k]); */
