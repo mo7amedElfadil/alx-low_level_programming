@@ -80,42 +80,11 @@ void arg_test(int argc, char **argv)
 		{
 			if (!(_isdigit(argv[i][j])))
 			{
-				error_resolution;
+				printf("Error\n");
+				exit(98);
 			}
 		}
 	}
-}
-/**
- * _calloc - allocates memory for an array using malloc.
- * @nmemb: number of elements in the array
- * @size: size of the bytes per member (sizeof datatype)
- * Return: array of integers (Success)
- *		   NULL (failure) if nmemb or size is zero or if malloc fails
- */
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	char *arr;
-	unsigned int i;
-
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-	arr = malloc(size * nmemb);
-	if (!arr)
-		return (NULL);
-	for (i = 0; i < nmemb * size; i++)
-		arr[i] = 0;
-	return (arr);
-}
-/**
- * error_resolution - resolves error state.
- *					prints "Error"
- *					exits with a code of 98
- */
-
-void error_resolution(void)
-{
-	printf("Error\n");
-	exit(98);
 }
 
 /**
@@ -130,14 +99,16 @@ int main(int argc, char **argv)
 	int i, j, k, size1, size2, carry = 0, c2, res, len;
 
 	arg_test(argc, argv);
-	x = argv[1];
-	y = argv[2];
+	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
 	len = size1 + size2 + 1;
 	result = malloc(sizeof(char) * len);
 	if (!result)
-		error_resolution;
+	{
+		printf("Error\n");
+		exit(98);
+	}
 	for (i = 0; i < len - 1; i++)
 		result[i] = 0;
 	reverse_str(x, size1), reverse_str(y, size2);
@@ -157,9 +128,7 @@ int main(int argc, char **argv)
 		result[k] += 48;
 	reverse_str(result, len);
 	for (k = 0; k < len; k++)
-	{
 		putchar(result[k]);
-	}
 	putchar('\n');
 	free(result);
 	return (0);
