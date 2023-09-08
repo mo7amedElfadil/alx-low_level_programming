@@ -131,7 +131,7 @@ int main(int argc, char **argv)
 	{
 		return (1);
 	}
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len - 1; i++)
 		result[i] = 0;
 	reverse_str(x, size1), reverse_str(y, size2);
 	for (i = 0; i < size1; i++)
