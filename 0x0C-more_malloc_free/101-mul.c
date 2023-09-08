@@ -124,37 +124,57 @@ int main(int argc, char **argv)
 	char *result = NULL, *x, *y;
 	int i, j, k, size1, size2, carry = 0, c2, res, len;
 
-	arg_test(argc, argv);
+	/* arg_test(argc, argv); */
+	/* int i, j; */
+
+	if (argc != 3)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+
+	for (i = 1; i < argc ; i++)
+	{
+		for (j = 0; argv[i][j]; j++)
+		{
+			if (!(_isdigit(argv[i][j])))
+			{
+				printf("Error\n");
+				exit(98);
+			}
+		}
+	}
+
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
 	len = size1 + size2 + 1;
 	result = malloc(sizeof(char) * len);
-	/* if (!result) */
-	/* { */
-	/* 	printf("Error\n"); */
-	/* 	exit(98); */
-	/* 	return (1); */
-	/* } */
-	/* for (i = 0; i < len; i++) */
-	/* 	result[i] = 0; */
-	/* reverse_str(x, size1), reverse_str(y, size2); */
-	/* for (i = 0; i < size1; i++) */
-	/* { */
-	/* 	carry = 0; */
-	/* 	for (j = 0; j < size2; j++) */
-	/* 	{ */
-	/* 		carry += mul(x[i], y[j]) + result[i + j]; */
-	/* 		result[i + j] = carry % 10; */
-	/* 		carry /= 10; */
-	/* 	} */
-	/* 	if (carry > 0) */
-	/* 		result[i + j] += carry; */
-	/* } */
-	/* for (k = 0; k < len - 1; k++) */
-	/* 	result[k] += 48; */
-	/* _print_rev_recursion(result); */
-	/* putchar('\n'); */
-	/* free(result); */
+	if (!result)
+	{
+		printf("Error\n");
+		exit(98);
+		return (1);
+	}
+	for (i = 0; i < len; i++)
+		result[i] = 0;
+	reverse_str(x, size1), reverse_str(y, size2);
+	for (i = 0; i < size1; i++)
+	{
+		carry = 0;
+		for (j = 0; j < size2; j++)
+		{
+			carry += mul(x[i], y[j]) + result[i + j];
+			result[i + j] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+			result[i + j] += carry;
+	}
+	for (k = 0; k < len - 1; k++)
+		result[k] += 48;
+	_print_rev_recursion(result);
+	putchar('\n');
+	free(result);
 	return (0);
 }
