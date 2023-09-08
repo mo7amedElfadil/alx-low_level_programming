@@ -27,18 +27,19 @@ int _isdigit(int c)
 		return (0);
 }
 
-/* mul - multiplies 2 character integers
+/**
+ * mul - multiplies 2 character integers
  * @a: first character
  * @b: second character
  * Return: integer value of the result of the multiplication
  *
- * */
+ */
 int mul(char a, char b)
 {
-	return ((a - 48)*(b - 48));
+	return ((a - 48) * (b - 48));
 }
 /**
- * reverse_array - function that reverses an array.
+ * reverse_str - function that reverses an array.
  * @a: pointer to an array.
  * @n: number of elements in the array.
  */
@@ -65,7 +66,8 @@ void reverse_str(char *a, int n)
 
 void arg_test(int argc, char **argv)
 {
-	int i,j;
+	int i, j;
+
 	if (argc != 3)
 	{
 		printf("Error\n");
@@ -78,8 +80,7 @@ void arg_test(int argc, char **argv)
 		{
 			if (!(_isdigit(argv[i][j])))
 			{
-				printf("Error\n");
-				exit(98);
+				error_resolution;
 			}
 		}
 	}
@@ -105,81 +106,58 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		arr[i] = 0;
 	return (arr);
 }
+/**
+ * error_resolution - resolves error state.
+ *					prints "Error"
+ *					exits with a code of 98
+ */
 
-
-
+void error_resolution(void)
+{
+	printf("Error\n");
+	exit(98);
+}
 
 /**
  * main - Entry point
- *
+ * @argc: argument count
+ * @argv: argument vector
  * Return: Always 0 (Success)
  */
 int main(int argc, char **argv)
 {
 	char *result = NULL, *x, *y;
-	int i,j, k, size1, size2, carry = 0,c2, res;
+	int i, j, k, size1, size2, carry = 0, c2, res;
 
 	arg_test(argc, argv);
-
 	x = argv[1];
 	y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
-	printf("size n: %i\nsize m: %i\n", size1, size2);
 	result = _calloc((size1 + size2 + 1), sizeof(char));
 	if (!result)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
+		error_resolution;
 	reverse_str(x, size1);
-
 	reverse_str(y, size2);
 	for (i = 0; i < size1; i++)
 	{
+		carry = 0;
 		for (j = 0; j < size2; j++)
 		{
-			printf("carry: \t %i\n", carry);
-			res = mul(x[i],y[j]) + carry;
-			printf(" %c * %c = \t %i\n",x[i], y[j], res);
-			carry = res / 10;
-			result[i + j] += res % 10;
-			if (result[i + j] > 9)
-			{
-				printf("____________%i____________\n",result[i + j] );
-				c2 = result[i + j] / 10;
-				result[i + j] %= 10;
-				result[i + j + 1] += c2;
-			}
-
-			printf("result:\t %i\n\n", result[i + j]);
-
+			carry += mul(x[i], y[j]) + result[i + j];
+			result[i + j] = carry % 10;
+			carry /= 10;
 		}
-		/* if (result[i + j] > 9) */
-		/* 	{ */
-		/* 		c2 = result[i + j] / 10; */
-		/* 		result[i + j] %= 10; */
-		/* 		result[i + j + 1] += c2; */
-		/* 	} */
-
-
+		if (carry > 0)
+			result[i + j] += carry;
 	}
-
 	for (k = 0; k < size1 + size2 - 1; k++)
-	{
 		result[k] += 48;
-	}
-
-	reverse_str(result, size1 + size2 );
-
+	reverse_str(result, size1 + size2);
 	for (k = 0; k < size1 + size2; k++)
 	{
-		printf("%c",result[k]);
+		printf("%c", result[k]);
 	}
 	printf("\n");
-
-
-
 	return (0);
 }
