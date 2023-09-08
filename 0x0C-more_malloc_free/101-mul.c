@@ -106,7 +106,7 @@ int print_output(char **argv)
 	x = argv[1], y = argv[2];
 	size1 = _strlen_recursion(x);
 	size2 = _strlen_recursion(y);
-	len = size1 + size2 + 1;
+	len = size1 + size2;
 	result = malloc(sizeof(char) * len);
 	if (!result)
 	{
