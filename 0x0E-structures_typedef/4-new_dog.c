@@ -41,9 +41,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 	d->name = name;
 
 	len_o = _strlen_recursion(name) + 1;
-	d->owner = malloc(sizeof(*name) * len_o);
+	d->owner = malloc(sizeof(*owner) * len_o);
 	if (!d->owner)
 		{
+			free(d->name);
 			free(d);
 			return(NULL);
 		}
