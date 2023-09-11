@@ -1,13 +1,15 @@
 #include "main.h"
 #include "dog.h"
 /**
- * init_dog - Entry point
- *
- * Return: Always 0 (Success)
+ * init_dog - intitialize a variable of type struct dog
+ * @d: pointer to struct variable
+ * @name: name of dog
+ * @age: age of dog
+ * @owner: owner of dod
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	d -> name = name;
-	d -> age = age;
-	d -> owner = owner;
+	d->name = name;
+	d->age = age;
+	d->owner = owner;
 }
