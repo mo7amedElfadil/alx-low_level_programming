@@ -85,7 +85,7 @@ void exit_resolution(void)
 
 }
 /**
- * print_result - prints the result
+ * print_result - prints the result and ignores the leading zeros
  * @result: pointer to the result of the multiplication
  * @len: length of the result ptr
  */
