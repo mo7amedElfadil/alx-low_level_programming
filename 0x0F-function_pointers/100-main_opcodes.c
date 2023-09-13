@@ -12,8 +12,7 @@ int main(int argc, char **argv)
 {
 
 	int i, n;
-	int (*main_ptr)(int, char **) = main;
-	unsigned char *optcodes = (unsigned char *)main_ptr;
+	char *(main_ptr) = (char *)main;
 
 	if (argc != 2)
 	{
@@ -28,7 +27,7 @@ int main(int argc, char **argv)
 	}
 	for (i = 0; i < n; i++)
 	{
-		printf("%02x", optcodes[i]);
+		printf("%02hhx", main_ptr[i]);
 		if (i < n - 1)
 			putchar(' ');
 	}
