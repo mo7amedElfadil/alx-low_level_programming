@@ -4,7 +4,9 @@
  * main - Entry point
  * @argc: argument counter
  * @argv: argument vector
- * Return: Always 0 (Success)
+ * Return:  0 (Success)
+ *			1 (Failure) when incorrect number of args are passed
+ *			2 (Failure) when number of bytes to print is negative
  */
 int main(int argc, char **argv)
 {
