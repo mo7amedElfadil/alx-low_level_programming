@@ -8,13 +8,14 @@
 int main(int argc, char **argv)
 {
 	int result;
-	int (*ptr)(int, int) = (get_op_func)(argv[2]);
+	int (*ptr)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+	ptr = (get_op_func)(argv[2]);
 	if (!ptr)
 	{
 		printf("Error\n");
@@ -26,6 +27,7 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(100);
 	}
+
 	result = ptr(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", result);
 	return (0);
