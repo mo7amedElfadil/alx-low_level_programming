@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 {
 
 	int i, n;
+
 	char *(main_ptr) = (char *)main;
 
 	if (argc != 2)
