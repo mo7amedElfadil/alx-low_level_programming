@@ -4,6 +4,7 @@
 /* library inclusions */
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 /* function prototypes */
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
