@@ -22,8 +22,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			((i != (int)(n - 1) && separator) ?
 			 separator : ""));
 	}
-
 	va_end(ptr);
 	printf("\n");
-
 }
