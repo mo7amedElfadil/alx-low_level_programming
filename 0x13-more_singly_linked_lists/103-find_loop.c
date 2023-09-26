@@ -16,9 +16,14 @@ listint_t *find_listint_loop(listint_t *head)
 	{
 		rab = rab->next->next;
 		tur = tur->next;
-
-		if (rab == tur)
+		if(rab == tur)
 		{
+			tur = head;
+			while (rab != tur)
+			{
+				tur = tur->next;
+				rab = rab->next;
+			}
 			return (rab);
 		}
 	}
