@@ -9,7 +9,6 @@ listint_t *reverse_listint(listint_t **head)
 {
 	*head = reverse(head);
 	return (*head);
-
 }
 /**
  * reverse - reverse a listint_t helper function

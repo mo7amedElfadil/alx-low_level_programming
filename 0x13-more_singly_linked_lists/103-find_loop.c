@@ -5,7 +5,6 @@
  * @head: head of the linked list to be printed
  * Return: size of list
  */
-
 listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *rab = head, *tur = head;
@@ -16,7 +15,7 @@ listint_t *find_listint_loop(listint_t *head)
 	{
 		rab = rab->next->next;
 		tur = tur->next;
-		if(rab == tur)
+		if (rab == tur)
 		{
 			tur = head;
 			while (rab != tur)
