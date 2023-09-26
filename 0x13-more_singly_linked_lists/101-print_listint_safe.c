@@ -12,8 +12,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t i = 0, j;
 
 	if (!(head))
-		exit(98);
-
+		return (0);
 	node = head;
 	while (node)
 	{
@@ -31,6 +30,8 @@ size_t print_listint_safe(const listint_t *head)
 			track = track->next;
 			j++;
 		}
+		if (!head)
+			exit(98);
 	}
 	return (i);
 }
