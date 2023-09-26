@@ -7,20 +7,18 @@
 
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *next = NULL;
-
-	if (!head || !*head || !(*head)->next)
+	listint_t *next = NULL, *temp = NULL;
+/* , *temp = NULL */
+	if (*head == NULL || (*head)->next == NULL)
 	{
-		printf("nULLLL\n");
 		return (*head);
 	}
+	temp = reverse_listint(&(*head)->next);
+	next = (*head)->next;
+	next->next = (*head);
+	(*head)->next = NULL;
 
-		next = reverse_listint(&(*head)->next);
-
-		(*head)->next->next = (*head);
-		/* next->next = *head; */
-		(*head)->next = NULL;
-		return (next);
+	return (temp);
 
 
 }
