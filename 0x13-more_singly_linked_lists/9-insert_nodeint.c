@@ -15,13 +15,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	if (!head)
 		return (NULL);
-
-	if (!idx && !*head)
-	{
+	if (!*head && !idx)
 		return (add_nodeint(head, n));
-	}
-	else if (idx)
+
+	if (idx > 0)
 	{
+		if (!*head)
+			return (NULL);
 		return (insert_nodeint_at_index(&(*head)->next, idx - 1, n));
 	}
 	else
