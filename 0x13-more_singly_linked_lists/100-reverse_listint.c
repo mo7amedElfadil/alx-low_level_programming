@@ -11,7 +11,11 @@ listint_t *reverse_listint(listint_t **head)
 	return (*head);
 
 }
-
+/**
+ * reverse - reverse a listint_t helper function
+ * @head: head of the linked list to be printed
+ * Return: pointer to first node
+ */
 listint_t *reverse(listint_t **head)
 {
 	listint_t *next = NULL, *temp = NULL;
