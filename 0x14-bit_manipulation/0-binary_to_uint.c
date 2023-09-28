@@ -31,23 +31,4 @@ unsigned int binary_to_uint(const char *b)
 
 	return (dec);
 }
-/**
- * power - power
- * @x: base
- * @y: power
- *
- * Return: power
- */
-int power(int x, int y)
-{
-	int z = x;
-
-	if (y == 0)
-		return (1);
-	while (--y)
-	{
-		z *= x;
-	}
-	return (z);
-}
 

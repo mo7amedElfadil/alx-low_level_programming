@@ -15,7 +15,6 @@ int clear_bit(unsigned long int *n, unsigned int index);
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
 int get_endianness(void);
 /* Utility functions */
-int power(int x, int y);
 int _putchar(char c);
 
 #endif
