@@ -7,21 +7,12 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned int i;
 	unsigned long int x = *n;
 
-	for (i = 0; i < index; i++)
-	{
-		x >>= 1;
-	}
-	if (i == index)
-	{
-		if (!(x & 1))
-			*n += power(2, i);
-		return (1);
-	}
-	else
-		return (-1);
+	x >>= index;
+	if (!(x & 1))
+		*n += power(2, index);
+	return (1);
 }
 /**
  * power - power
