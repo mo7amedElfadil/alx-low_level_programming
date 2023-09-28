@@ -1,6 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdio.h>
+#include <stdlib.h>
+#ifndef BUFF
+#define BUFF 1024
+#endif
 
 /* Task functions */
 unsigned int binary_to_uint(const char *b);
@@ -12,4 +16,6 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m);
 
 /* Utility functions */
 int power(int x, int y);
+int _putchar(char c);
+
 #endif
