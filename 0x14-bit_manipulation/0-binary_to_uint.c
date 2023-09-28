@@ -26,7 +26,7 @@ unsigned int binary_to_uint(const char *b)
 		}
 	}
 	for (i = len - 1; i >= 0; i--)
-		dec += power(2, len - i - 1) * (b[i] - 48);
+		dec += (1 << (len - i - 1)) * (b[i] - 48);
 
 
 	return (dec);
