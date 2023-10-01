@@ -14,25 +14,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 
 	x >>= index;
 	if ((x & 1))
-		*n -= power(2, index);
+		*n -= 1 << index;
 	return (1);
 }
-/**
- * power - power
- * @x: base
- * @y: power
- *
- * Return: power
- */
-int power(int x, int y)
-{
-	int z = x;
 
-	if (y == 0)
-		return (1);
-	while (--y)
-	{
-		z *= x;
-	}
-	return (z);
-}
