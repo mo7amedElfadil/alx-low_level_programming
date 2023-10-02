@@ -15,9 +15,9 @@
 int main(int ac, char *av[])
 {
 	int fd = 0;
-	ElfW(Ehdr) header;
 	char *sectNames;
 
+	ElfW(Ehdr) header;
 
 	if (ac != 2)
 	{
@@ -27,14 +27,12 @@ int main(int ac, char *av[])
 	}
 	open_elf(av, &fd);
 
-
-
-
 	read_elf(fd, header, av[1]);
-    if (memcmp(header.e_ident, ELFMAG, SELFMAG) == 0) {
+	if (memcmp(header.e_ident, ELFMAG, SELFMAG) == 0)
+	{
 		(void)sectNames;
 
-	/* char *s = malloc(1024); */
+		/* char *s = malloc(1024); */
 	}
 
 	close_elf(fd);
@@ -51,8 +49,8 @@ int main(int ac, char *av[])
 void elf_error(int err, char *Error, char *file_name)
 {
 	(void)file_name;
-		dprintf(STDERR_FILENO, "%s %s\n", Error, file_name);
-		exit(err);
+	dprintf(STDERR_FILENO, "%s %s\n", Error, file_name);
+	exit(err);
 }
 
 /**
@@ -90,14 +88,21 @@ void close_elf(int fd)
 }
 
 
+/**
+ * read_elf - read elf header
+ * @fd: file discriptor
+ * @header: Elf header
+ * @file_name: name of file
+ */
+
 void read_elf(int fd, ElfW(Ehdr) header, char *file_name)
 {
 
 	if (read(fd, &header, sizeof(ElfW(Ehdr))) != sizeof(ElfW(Ehdr)))
-		{
-        elf_error(98,
+	{
+		elf_error(98,
 				"Error reading ELF header", file_name);
-;
-		}
+		;
+	}
 
 }
