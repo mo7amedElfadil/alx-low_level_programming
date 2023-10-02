@@ -5,6 +5,16 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
+#include <elf.h>
+
+/* structs and macros */
+#if defined(__LP64__)
+#define ElfW(type) Elf64_ ## type
+#else
+#define ElfW(type) Elf32_ ## type
+#endif
+
+
 #ifndef BUFF
 #define BUFF 1024
 #endif
@@ -22,4 +32,6 @@ void close_free(int ff, int ft, char *buf);
 void elf_error(int err, char *Error, char *file_name);
 void open_elf(char **av, int *fp);
 void close_elf(int fd);
+
+void read_elf(int fd, ElfW(Ehdr) header, char *file_name);
 #endif

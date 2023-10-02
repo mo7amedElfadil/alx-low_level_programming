@@ -1,6 +1,8 @@
 #include "main.h"
 #include <elf.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
  * main - elf_header elf_filename
@@ -13,7 +15,9 @@
 int main(int ac, char *av[])
 {
 	int fd = 0;
-	/* char *s = malloc(1024); */
+	ElfW(Ehdr) header;
+	char *sectNames;
+
 
 	if (ac != 2)
 	{
@@ -23,15 +27,20 @@ int main(int ac, char *av[])
 	}
 	open_elf(av, &fd);
 
-	/* s[0] = 0; */
-	/* strcat(s, "readelf -h "); */
-	/* strcat(s, av[1]); */
-	/* system(s); */
-	/* free(s); */
-	close_elf(fd);
 
+
+
+	read_elf(fd, header, av[1]);
+    if (memcmp(header.e_ident, ELFMAG, SELFMAG) == 0) {
+		(void)sectNames;
+
+	/* char *s = malloc(1024); */
+	}
+
+	close_elf(fd);
 	return (0);
 }
+
 
 /**
  * elf_error - handles errors for elf file
@@ -60,7 +69,7 @@ void open_elf(char **av, int *fd)
 	if (*fd == -1)
 	{
 		elf_error(98,
-				"Error: Could not open elf file - %s\n",
+				"Error: Could not open elf file \n",
 				file_name);
 	}
 
@@ -80,3 +89,15 @@ void close_elf(int fd)
 	}
 }
 
+
+void read_elf(int fd, ElfW(Ehdr) header, char *file_name)
+{
+
+	if (read(fd, &header, sizeof(ElfW(Ehdr))) != sizeof(ElfW(Ehdr)))
+		{
+        elf_error(98,
+				"Error reading ELF header", file_name);
+;
+		}
+
+}

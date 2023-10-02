@@ -1,4 +1,6 @@
 #include "main.h"
+
+
 /**
  * main - check the code
  * @ac: argument count
@@ -42,6 +44,8 @@ int main(int ac, char **av)
 	close_free(ff, ft, buf);
 	return (0);
 }
+
+
 
 /**
  * open_files - open files
