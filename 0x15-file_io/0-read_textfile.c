@@ -12,21 +12,25 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *f;
+	int fd;
 	int len;
 	char *s = NULL;
 
-	f = fopen(filename, "r");
-	if (f)
+	fd = open(filename, O_RDONLY);
+	if (fd > 0)
 	{
 		s = malloc(sizeof(*s) * letters + 1);
 		if (s)
 		{
-			if (!fread(s, 1, letters, f))
+			len = read(fd, s, letters);
+			if (len <= 0)
+			{
+				close(fd), free(s);
 				return (0);
-			len = write(1, s, _strlen(s));
-			fclose(f), free(s);
-			return (len < 0 ? 0 : len);
+			}
+			write(STDOUT_FILENO, s, len);
+			close(fd), free(s);
+			return (len);
 		}
 	}
 
