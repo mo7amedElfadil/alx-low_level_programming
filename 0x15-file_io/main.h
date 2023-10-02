@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
+#include <errno.h>
 #ifndef BUFF
 #define BUFF 1024
 #endif
@@ -16,4 +17,7 @@ int append_text_to_file(const char *filename, char *text_content);
 
 /* Utility */
 
+void open_files(char **av, int *ff, int *ft);
+
+void close_free(int ff, int ft, char *buf);
 #endif
