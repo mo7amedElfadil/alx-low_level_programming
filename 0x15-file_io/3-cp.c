@@ -28,12 +28,15 @@ int main(int ac, char **av)
 	{
 		do {
 			len = read(ff, buf, 1024);
-			if (len <= 0)
+			if (len == -1)
 			{
-				close(ff), close(ft), free(buf);
+				close_free(ff, ft, buf);
+				error_handle(98, av[1]);
 				return (0);
 			}
-			write(ft, buf, len);
+			if (write(ft, buf, len) == -1)
+				error_handle(99, av[2]);
+
 		} while (len == 1024);
 	}
 	close_free(ff, ft, buf);
@@ -55,8 +58,7 @@ void open_files(char **av, int *ff, int *ft)
 	*ff = open(file_from, O_RDONLY);
 	if (*ff == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
+		error_handle(98, file_from);
 	}
 
 	*ft = open(file_to, O_WRONLY | O_APPEND | O_CREAT | O_TRUNC,
@@ -64,8 +66,7 @@ void open_files(char **av, int *ff, int *ft)
 
 	if (*ft == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
+		error_handle(99, file_to);
 	}
 
 }
@@ -100,4 +101,24 @@ void close_free(int ff, int ft, char *buf)
 	free(buf);
 
 
+}
+
+/**
+ * error_handle - handles errors for read and write
+ * @err: error code
+ * @file_name: name of file
+ */
+void error_handle(int err, char *file_name)
+{
+	switch (err)
+	{
+	case 98:
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_name);
+		exit(err);
+		break;
+	case 99:
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_name);
+		exit(err);
+		break;
+	}
 }
