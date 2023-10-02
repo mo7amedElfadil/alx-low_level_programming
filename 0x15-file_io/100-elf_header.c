@@ -12,7 +12,7 @@
  */
 int main(int ac, char *av[])
 {
-	char *s = malloc(1024);
+	/* char *s = malloc(1024); */
 
 	if (ac != 2)
 	{
@@ -20,11 +20,11 @@ int main(int ac, char *av[])
 				"Error! Usage: elf_header elf_filename\n",
 				av[0]);
 	}
-	s[0] = 0;
-	strcat(s, "readelf -h ");
-	strcat(s, av[1]);
-	system(s);
-	free(s);
+	/* s[0] = 0; */
+	/* strcat(s, "readelf -h "); */
+	/* strcat(s, av[1]); */
+	/* system(s); */
+	/* free(s); */
 	return (0);
 }
 
