@@ -13,19 +13,20 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	FILE *f;
+	int len;
 	char *s = NULL;
 
 	f = fopen(filename, "r");
 	if (f)
-
 	{
 		s = malloc(sizeof(*s) * letters + 1);
 		if (s)
 		{
 			if (!fread(s, 1, letters, f))
 				return (0);
+			len = write(1, s, _strlen(s));
 			fclose(f), free(s);
-			return (write(1, s, _strlen(s)));
+			return (len < 0 ? 0 : len);
 		}
 	}
 
