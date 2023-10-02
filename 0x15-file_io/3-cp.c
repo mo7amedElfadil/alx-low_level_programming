@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 /**
  * main - check the code
  * @ac: argument count
@@ -54,7 +53,7 @@ void open_files(char **av, int *ff, int *ft)
 	file_from = av[1];
 	file_to = av[2];
 	*ff = open(file_from, O_RDONLY);
-	if (errno == -1)
+	if (*ff == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
@@ -63,7 +62,7 @@ void open_files(char **av, int *ff, int *ft)
 	*ft = open(file_to, O_WRONLY | O_APPEND | O_CREAT | O_TRUNC,
 			S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 
-	if (errno == -1)
+	if (*ft == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
@@ -82,16 +81,16 @@ void close_free(int ff, int ft, char *buf)
 {
 
 
-	close(ff);
-	if (errno == -1)
+	ff = close(ff);
+	if (ff == -1)
 	{
 		free(buf);
 		dprintf(STDERR_FILENO, "Error: Can't close fd FD_VALUE %i\n", ff);
 		exit(100);
 	}
 
-	close(ft);
-	if (errno == -1)
+	ft = close(ft);
+	if (ft == -1)
 	{
 		free(buf);
 		dprintf(STDERR_FILENO, "Error: Can't close fd FD_VALUE %i\n", ft);

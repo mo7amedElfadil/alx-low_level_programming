@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
-#include <errno.h>
 #ifndef BUFF
 #define BUFF 1024
 #endif
