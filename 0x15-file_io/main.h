@@ -20,4 +20,6 @@ void open_files(char **av, int *ff, int *ft);
 void error_handle(int err, char *file_name);
 void close_free(int ff, int ft, char *buf);
 void elf_error(int err, char *Error, char *file_name);
+void open_elf(char **av, int *fp);
+void close_elf(int fd);
 #endif
