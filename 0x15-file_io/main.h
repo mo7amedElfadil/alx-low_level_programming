@@ -19,4 +19,5 @@ int append_text_to_file(const char *filename, char *text_content);
 void open_files(char **av, int *ff, int *ft);
 void error_handle(int err, char *file_name);
 void close_free(int ff, int ft, char *buf);
+void elf_error(int err, char *Error, char *file_name);
 #endif
