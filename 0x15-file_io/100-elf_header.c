@@ -14,7 +14,7 @@
  */
 int main(int ac, char *av[])
 {
-	int fd = 0, i = 0;
+	int fd = 0, i = 0, x = 0;
 	char *s, *p;
 	FILE *f;
 
@@ -28,28 +28,25 @@ int main(int ac, char *av[])
 	}
 	open_elf(av, &fd);
 	read_elf(fd, header, av[1]);
-	/* if (memcmp(header.e_ident, ELFMAG, SELFMAG) == 0) */
-	/* { */
 		s[0] = 0, strcat(s, "readelf -h ");
 		strcat(s, av[1]), strcat(s, " > elf"), system(s);
-		/* fd = open("elf", O_RDONLY), */
 		   f = fopen("elf", "r");
-		/* read(fd, s, 1024); */
 		while (fgets(s, 512, f) && i < 8)
 		{
+			if (i == 1)
+			{
+				while (s[x])
+					x++;
+				s[x - 2] = '\n', s[x - 1] = 0;
+			}
 			printf("%s", s);
 			i++;
 		}
 		while (fgets(p, 512, f) && i < 8)
-		{
 			i++;
-		}
-		/* lseek(f,  strlen(p), SEEK_CUR); */
 		fgets(s, 512, f);
 		printf("%s", s);
-		/* } */
 	free(s), free(p);
-	/* close_elf(fd), */
 	fclose(f);
 	return (0);
 }
