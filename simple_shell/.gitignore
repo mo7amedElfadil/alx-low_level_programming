@@ -1,7 +1,0 @@
-*
-!/*.c
-!/.gitignore
-!/main.h
-!/README.md
-*main.c
-a.out
