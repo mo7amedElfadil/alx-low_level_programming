@@ -18,7 +18,6 @@ int main(int ac, char *av[])
 	char *s, *p;
 	FILE *f;
 
-	ElfW(Ehdr) header;
 	s = malloc(1024), p = malloc(1024);
 	if (ac != 2)
 	{
@@ -26,8 +25,9 @@ int main(int ac, char *av[])
 				"Error! Usage: elf_header elf_filename\n",
 				av[0]);
 	}
-	open_elf(av, &fd), read_elf(fd, header, av[1]);
-	if (memcmp(header.e_ident, ELFMAG, SELFMAG) != 0)
+	open_elf(av, &fd), read(fd, s, 4);
+	s[4] = 0;
+	if (strcmp(s, "\x7f\x45\x4c\x46"))
 	{
 		free(s), free(p);
 		exit(98);
@@ -98,18 +98,4 @@ void close_elf(int fd)
 		exit(98);
 	}
 }
-/**
- * read_elf - read elf header
- * @fd: file discriptor
- * @header: Elf header
- * @file_name: name of file
- */
-void read_elf(int fd, ElfW(Ehdr) header, char *file_name)
-{
-	if (read(fd, &header, sizeof(ElfW(Ehdr))) != sizeof(ElfW(Ehdr)))
-	{
-		elf_error(98,
-				"Error reading ELF header", file_name);
-		;
-	}
-}
+
