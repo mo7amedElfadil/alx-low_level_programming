@@ -4,7 +4,7 @@
  * _strspn - gets the length of a prefix substring
  * @s: pointer to string
  * @accept: example of prefix substring to test for
- * Return: dest
+ * Return: span of characters
  */
 unsigned int _strspn(char *s, char *accept)
 {
@@ -14,8 +14,7 @@ unsigned int _strspn(char *s, char *accept)
 	while (*ptrs)
 	{
 		for (ptra = accept; *ptra && *ptra != *ptrs; ptra++)
-		{
-		}
+			;
 		if (!(*ptra))
 			break;
 		ptrs++;
