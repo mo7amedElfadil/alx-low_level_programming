@@ -108,7 +108,6 @@ int32_t main(int32_t argc, char **argv)
 {
 	char *var_58 = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
 	char *rax_2 = argv[1];
-	char *rax_4 = argv[2];
 	int32_t rax_8 = strlen(rax_2);
 	int32_t rax_10 = f1(rax_8);
 	int32_t rax_16 = f2(rax_2, rax_8);
@@ -117,6 +116,7 @@ int32_t main(int32_t argc, char **argv)
 	int32_t rax_37 = f5(rax_2, rax_8);
 	int32_t rax_46 = f6(*rax_2);
 
+	(void)argc;
 	printf("%c", var_58[rax_10]);
 	printf("%c", var_58[rax_16]);
 	printf("%c", var_58[rax_23]);
