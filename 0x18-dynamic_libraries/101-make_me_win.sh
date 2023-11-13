@@ -1,3 +1,3 @@
 #!/bin/bash
-curl -O  https://github.com/mo7amedElfadil/alx-low_level_programming/blob/main/0x18-dynamic_libraries/rand.so
-export LD_PRELOAD=/rand.so
+gcc -shared -fPIC -o rand.so rand.c
+export LD_PRELOAD=$PWD/rand.so
