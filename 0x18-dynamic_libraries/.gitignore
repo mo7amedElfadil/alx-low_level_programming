@@ -1,0 +1,6 @@
+*
+!/*.so
+!/.gitignore
+!/*.h
+!/README.md
+
