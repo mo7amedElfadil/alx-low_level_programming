@@ -2,5 +2,6 @@
 !/*.so
 !/.gitignore
 !/*.h
+!/*.sh
 !/README.md
 
