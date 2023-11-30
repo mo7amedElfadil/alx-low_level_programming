@@ -2,6 +2,7 @@
 #define	HASH_TABLE
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 typedef unsigned long ul;
 
 /**
@@ -36,5 +37,8 @@ typedef struct hash_table_s
 
 /* ----------Prototypes---------- */
 hash_table_t *hash_table_create(unsigned long int size);
+/* Hash function */
 unsigned long int hash_djb2(const unsigned char *str);
+/* index retriever */
+unsigned long int key_index(const unsigned char *key, unsigned long int size);
 #endif
