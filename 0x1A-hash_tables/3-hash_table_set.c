@@ -22,14 +22,21 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new = malloc(sizeof(hash_node_t *));
 	if (!new)
 		return (0);
-	new->key = malloc(strlen(key) + 1);
-	new->value = malloc(strlen(value) + 1);
-	strcpy(new->key, key);
-	strcpy(new->value, value);
-	if (!ht->array[idx])
-		new->next = NULL;
-	else
-		new->next = ht->array[idx];
+	new->key = strdup(key);
+	if (!new->key)
+	{
+		free(new);
+		return (0);
+	}
+
+	new->value = strdup(value);
+	if (!new->key)
+	{
+		free(new->key);
+		free(new);
+		return (0);
+	}
+	new->next = ht->array[idx];
 	ht->array[idx] = new;
 	return (1);
 }
