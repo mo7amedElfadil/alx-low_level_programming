@@ -164,7 +164,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
  */
 void shash_table_print(const shash_table_t *ht)
 {
-	ul i, f_pt = 0;
+	ul f_pt = 0;
 	shash_node_t *hd;
 
 	if (!ht || !ht->array || !ht->size)
@@ -191,7 +191,7 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	ul i, f_pt = 0;
+	ul f_pt = 0;
 	shash_node_t *hd;
 
 	if (!ht || !ht->array || !ht->size)
@@ -218,7 +218,6 @@ void shash_table_print_rev(const shash_table_t *ht)
  */
 void shash_table_delete(shash_table_t *ht)
 {
-	ul i;
 	shash_node_t *hd, *prev;
 
 	if (!ht || !ht->array || !ht->size)
