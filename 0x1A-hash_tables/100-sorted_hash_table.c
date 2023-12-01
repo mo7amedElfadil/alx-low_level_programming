@@ -68,37 +68,38 @@ int insertion_sort_new_node(shash_table_t *ht, ul idx,
 	new = snew_node(key, value);
 	if (!new)
 		return (0);
-	new->next = ht->array[idx];
-	ht->array[idx] = new;
+	new->next = ht->array[idx],	ht->array[idx] = new;
 	if (!ht->shead)
-	{
-		ht->shead = new;
-		ht->stail = new;
-	}
+		ht->shead = ht->stail = new;
 	else
 	{
 		tmp = ht->shead;
 		while (tmp->snext && strcmp(tmp->key, new->key) <= 0)
-		{
 			tmp = tmp->snext;
-		}
 		if (!tmp->sprev)
 		{
-			ht->shead = new;
-			new->snext = tmp;
-			tmp->sprev = new;
-			new->sprev = NULL;
+			if (strcmp(tmp->key, new->key) >= 0)
+			{
+				ht->shead = new;
+				new->snext = tmp;
+				tmp->sprev = new;
+			}
+			else
+			{
+				new->sprev = tmp;
+				if (!tmp->snext)
+					ht->stail = new;
+				tmp->snext = new;
+			}
 			return (1);
 		}
 		else if (!tmp->snext)
 			ht->stail = new;
 		else
 		{
-			tmp = tmp->sprev;
-			tmp->snext->sprev = new;
+			tmp = tmp->sprev, tmp->snext->sprev = new;
 		}
-		new->sprev = tmp;
-		new->snext = tmp->snext;
+		new->sprev = tmp, new->snext = tmp->snext;
 		tmp->snext = new;
 	}
 	return (1);
