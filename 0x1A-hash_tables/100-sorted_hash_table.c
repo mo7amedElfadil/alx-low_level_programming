@@ -15,7 +15,7 @@ shash_table_t *shash_table_create(ul size)
 	if (!ht)
 		return (NULL);
 	ht->size = size;
-	ht->array = malloc(size * sizeof(shash_node_t));
+	ht->array = malloc(sizeof(shash_node_t *) * size);
 	if (!ht->array)
 	{
 		free(ht);
@@ -69,39 +69,29 @@ int insertion_sort_new_node(shash_table_t *ht, ul idx,
 	if (!new)
 		return (0);
 	new->next = ht->array[idx],	ht->array[idx] = new;
-	if (!ht->shead)
-		ht->shead = ht->stail = new;
-	else
+	if (!ht->shead && !ht->stail)
 	{
-		tmp = ht->shead;
-		while (tmp->snext && strcmp(tmp->key, new->key) <= 0)
-			tmp = tmp->snext;
-		if (!tmp->sprev)
+		ht->shead = ht->stail = new;
+		return (1);
+	}
+	tmp = ht->shead;
+	while (tmp)
+	{
+		if (strcmp(tmp->key, new->key) > 0)
 		{
-			if (strcmp(tmp->key, new->key) >= 0)
-			{
-				ht->shead = new;
-				new->snext = tmp;
-				tmp->sprev = new;
-			}
+			new->sprev = tmp->sprev, new->snext = tmp;
+			tmp->sprev = new;
+			if (new->sprev)
+				new->sprev->snext = new;
 			else
-			{
-				new->sprev = tmp;
-				if (!tmp->snext)
-					ht->stail = new;
-				tmp->snext = new;
-			}
+				ht->shead = new;
 			return (1);
 		}
-		else if (!tmp->snext)
-			ht->stail = new;
-		else
-		{
-			tmp = tmp->sprev, tmp->snext->sprev = new;
-		}
-		new->sprev = tmp, new->snext = tmp->snext;
-		tmp->snext = new;
+		tmp = tmp->snext;
 	}
+	new->sprev = ht->stail;
+	ht->stail->snext = new;
+	ht->stail = new;
 	return (1);
 }
 
