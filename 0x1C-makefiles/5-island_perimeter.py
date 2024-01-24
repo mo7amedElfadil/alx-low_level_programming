@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 """
 module island_perimeter
-returns the perimeter of the island described in grid:
+"""
+
+
+def island_perimeter(grid: list) -> int:
+    """
+    returns the perimeter of the island described in grid:
     grid is a list of list of integers:
         0 represents a water zone
         1 represents a land zone
@@ -11,10 +16,7 @@ returns the perimeter of the island described in grid:
     Grid is completely surrounded by water, there is one island (or nothing).
     The island doesn’t have “lakes” (water inside that isn’t
     connected to the water around the island).
-"""
-
-
-def island_perimeter(grid: list) -> int:
+    """
     if not grid or not len(grid):
         return 0
     perimeter = 0
