@@ -8,8 +8,9 @@ returns the perimeter of the island described in grid:
         One cell is a square with side length 1
         Grid cells are connected horizontally/vertically (not diagonally).
         Grid is rectangular, width and height don’t exceed 100
-    Grid is completely surrounded by water, and there is one island (or nothing).
-    The island doesn’t have “lakes” (water inside that isn’t connected to the water around the island).
+    Grid is completely surrounded by water, there is one island (or nothing).
+    The island doesn’t have “lakes” (water inside that isn’t
+    connected to the water around the island).
 """
 
 
@@ -18,6 +19,7 @@ def island_perimeter(grid: list) -> int:
         return 0
     perimeter = 0
     row, col = len(grid), len(grid[0])
+
     def calc(grid: list, i: int, j: int) -> int:
         perimeter = 0
         if i and not grid[i - 1][j]:
@@ -35,5 +37,3 @@ def island_perimeter(grid: list) -> int:
                 perimeter += calc(grid, i, j)
 
     return perimeter
-
-
