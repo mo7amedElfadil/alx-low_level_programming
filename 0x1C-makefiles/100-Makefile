@@ -1,0 +1,29 @@
+# Makefile for school executable
+# make -f 4-Makefile
+
+# the compiler to be used
+CC = gcc
+# the .c files
+SRC = main.c school.c
+# the .o files
+OBJ = $(SRC:.c=.o)
+# the name of the executable
+NAME = school
+# the program to delete files
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+.PHONY: all clean oclean fclean re
+# builds executable
+# recompile only the updated source files
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+# deletes all Emacs and Vim temporary files along with executable
+clean:
+	$(RM) $(NAME) *~ .*~ *.swp
+# deletes the object files
+oclean:
+	$(RM) $(OBJ)
+# deletes all Emacs and Vim temporary files, the executable, and the object files
+fclean: clean oclean
+# forces recompilation of all source files
+re:	fclean all
