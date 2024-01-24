@@ -21,6 +21,7 @@ def island_perimeter(grid: list) -> int:
         return 0
     perimeter = 0
     row, col = len(grid), len(grid[0])
+
     def calc(grid: list, i: int, j: int) -> int:
         perimeter = 0
         if (i and not grid[i - 1][j]) or not i:
