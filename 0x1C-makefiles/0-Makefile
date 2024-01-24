@@ -1,0 +1,10 @@
+# Makefile for school executable
+# make -f 0-Makefile
+
+all: school
+
+school: main.c school.c
+	gcc main.c school.c -o school
+
+clean:
+	rm -f school
