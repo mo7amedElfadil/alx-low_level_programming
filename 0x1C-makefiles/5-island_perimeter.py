@@ -23,13 +23,13 @@ def island_perimeter(grid: list) -> int:
     row, col = len(grid), len(grid[0])
     def calc(grid: list, i: int, j: int) -> int:
         perimeter = 0
-        if i and not grid[i - 1][j]:
+        if (i and not grid[i - 1][j]) or not i:
             perimeter += 1
-        if j and not grid[i][j - 1]:
+        if j and not grid[i][j - 1] or not j:
             perimeter += 1
-        if i < row - 1 and not grid[i + 1][j]:
+        if (i < row - 1 and not grid[i + 1][j]) or i == row - 1:
             perimeter += 1
-        if j < col - 1 and not grid[i][j + 1]:
+        if (j < col - 1 and not grid[i][j + 1]) or j == col - 1:
             perimeter += 1
         return perimeter
     found_island = 0
