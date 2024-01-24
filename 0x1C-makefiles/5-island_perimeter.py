@@ -42,9 +42,6 @@ def island_perimeter(grid: list) -> int:
                     found_island = 1
                 if not found_land:
                     found_land = 1
-            else:
-                if found_land:
-                    break
         if not found_land and found_island:
             break
 
