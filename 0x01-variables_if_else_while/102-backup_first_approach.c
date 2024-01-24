@@ -20,7 +20,7 @@ int main(void)
 			k = i;
 			while (k <= 57)
 			{
-				l =48;
+				l = 48;
 				while (l <= 57)
 				{
 					if (!((i >= k) && (j >= l)))
