@@ -6,10 +6,10 @@
  */
 hash_table_t *hash_table_create(ul size)
 {
-	hash_table_t *ht = 0;
-	ul i = 0;
+	hash_table_t *ht = 0; // hash table
+	ul i = 0; // index
 
-	ht = malloc(sizeof(hash_table_t));
+	ht = malloc(sizeof(hash_table_t)); // allocate memory for hash table
 	if (!ht)
 		return (NULL);
 	ht->size = size;

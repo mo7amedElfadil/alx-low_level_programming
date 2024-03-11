@@ -1,6 +1,4 @@
 #include "hash_tables.h"
-
-
 /**
  * shash_table_create - Create a hash table
  * @size: size of hash table
@@ -60,6 +58,14 @@ shash_node_t *snew_node(const char *key, const char *value)
 	return (new);
 }
 
+/**
+ * insertion_sort_new_node - insert a new node in the sorted list
+ * @ht: pointer to hash table
+ * @idx: index of the array
+ * @key: key string
+ * @value: value associated with key
+ * Return: 1 success, 0 failure
+ */
 int insertion_sort_new_node(shash_table_t *ht, ul idx,
 		const char *key, const char *value)
 {
