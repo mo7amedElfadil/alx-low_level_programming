@@ -30,23 +30,16 @@ int adv_binary_search_helper(int *array, int value, size_t left, size_t right)
 	if (left > right)
 		return (-1);
 	print_array(array, left, right);
-	if (left == right)
-	{
-		if (array[left] == value)
-			return (left);
-		else
-			return (-1);
-	}
 	mid = left + (right - left) / 2;
 	if (array[mid] == value)
 	{
-		if (array[mid - 1] == value)
+		if (array[mid - 1] == value && mid != left)
 			return (adv_binary_search_helper(array, value, left, mid));
 		else
 			return (mid);
 	}
 	if (array[mid] > value)
-		return (adv_binary_search_helper(array, value, left, mid - 1));
+		return (adv_binary_search_helper(array, value, left, mid));
 	else
 		return (adv_binary_search_helper(array, value, mid + 1, right));
 
