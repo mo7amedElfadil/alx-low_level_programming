@@ -17,10 +17,29 @@
  */
 typedef struct listint_s
 {
+	int n;
+	size_t index;
+	struct listint_s *next;
+} listint_t;
+
+
+/**
+ * struct skiplist_s - Singly linked list with an express lane
+ *
+ * @n: Integer
+ * @index: Index of the node in the list
+ * @next: Pointer to the next node
+ * @express: Pointer to the next node in the express lane
+ *
+ * Description: singly linked list node structure with an express lane
+ */
+typedef struct skiplist_s
+{
     int n;
     size_t index;
-    struct listint_s *next;
-} listint_t;
+    struct skiplist_s *next;
+    struct skiplist_s *express;
+} skiplist_t;
 
 /* ------------ Prototype declarations ------------ */
 
@@ -53,5 +72,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value);
 void free_list(listint_t *list);
 listint_t *create_list(int *array, size_t size);
 void print_list(const listint_t *list);
-/* skiplist_t *linear_skip(skiplist_t *list, int value); */
+listint_t *jump_list_helper(listint_t *list, listint_t *tail, int value);
+
+
+/* -------____ Linear Skip Linked List ____------- */
+skiplist_t *linear_skip(skiplist_t *list, int value);
+skiplist_t *skip_list_helper(skiplist_t *list, skiplist_t *tail, int value);
 #endif
