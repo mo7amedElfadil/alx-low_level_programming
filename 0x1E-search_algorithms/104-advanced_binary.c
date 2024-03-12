@@ -39,7 +39,7 @@ int adv_binary_search_helper(int *array, int value, size_t left, size_t right)
 			return (mid);
 	}
 	if (array[mid] > value)
-		return (adv_binary_search_helper(array, value, left, mid - 1));
+		return (adv_binary_search_helper(array, value, left, mid));
 	else
 		return (adv_binary_search_helper(array, value, mid + 1, right));
 

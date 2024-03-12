@@ -18,11 +18,11 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	{
 		list = tail;
 		tail = list->next;
-	while (tail->next && (tail->index) % jump)
-	{
-		tail = tail->next;
+		while (tail->next && (tail->index) % jump)
+		{
+			tail = tail->next;
 
-	}
+		}
 		printf("Value checked array[%lu] = [%i]\n", tail->index, tail->n);
 	}
 	return (jump_list_helper(list, tail, value));
