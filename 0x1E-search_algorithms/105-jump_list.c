@@ -10,15 +10,15 @@
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
 	size_t jump = sqrt(size);
-	listint_t *tail = list;
+	listint_t *tail;
+	size_t i;
 
 	if (!list || !size)
 		return (NULL);
-	while (tail->next && tail->n < value)
+	for (tail = list; tail && tail->next && tail->n < value; )
 	{
 		list = tail;
-		tail = list->next;
-		while (tail->next && (tail->index) % jump)
+		for (i = 0; tail->next && i < jump; i++)
 		{
 			tail = tail->next;
 
