@@ -30,8 +30,6 @@ int binary_search_helper(int *array, int value, size_t left, size_t right)
 	if (left > right)
 		return (-1);
 	print_array(array, left, right);
-	if (array[left] == value)
-		return (left);
 	mid = left + (right - left) / 2;
 	if (array[mid] == value)
 		return (mid);
