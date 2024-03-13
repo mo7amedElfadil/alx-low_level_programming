@@ -15,7 +15,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 
 	if (!list || !size)
 		return (NULL);
-	for (tail = list; tail && tail->next && tail->n < value && tail->n < size - 1; )
+	for (tail = list; tail && tail->next && tail->n < value && tail->index < size - 1; )
 	{
 		list = tail;
 		for (i = 0; tail && tail->next && i < jump; i++)
