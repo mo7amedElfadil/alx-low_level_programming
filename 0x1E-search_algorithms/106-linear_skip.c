@@ -40,7 +40,7 @@ skiplist_t *skip_list_helper(skiplist_t *list, skiplist_t *tail, int value)
 {
 	printf("Value found between indexes [%lu] and [%lu]\n",
 			list->index, tail->index);
-	while (list && list->n <= tail->n)
+	while (list && list->n <= value)
 	{
 		printf("Value checked array[%lu] = [%i]\n", list->index, list->n);
 		if (list->n == value)
