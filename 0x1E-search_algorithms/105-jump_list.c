@@ -10,15 +10,16 @@
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
 	size_t jump = sqrt(size);
-	listint_t *tail;
+	listint_t *tail, *head;
 	size_t i;
 
 	if (!list || !size)
 		return (NULL);
 	tail = list;
+	head = list;
 	while (tail->index < size - 1 && tail->n < value)
 	{
-		list = tail;
+		head = tail;
 		for (i = 0; i < jump && tail->next; i++)
 		{
 			tail = tail->next;
@@ -26,7 +27,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		}
 		printf("Value checked array[%lu] = [%i]\n", tail->index, tail->n);
 	}
-	return (jump_list_helper(list, tail, value));
+	return (jump_list_helper(head, tail, value));
 }
 
 
